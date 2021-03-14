@@ -1,0 +1,8 @@
+.page-wrapper{  
+    display:grid;
+    grid-template-rows:400px 1fr 100px;
+    width:100%;  
+    @include desktop{
+     grid-template-rows:400px 1fr 200px;
+    }
+}

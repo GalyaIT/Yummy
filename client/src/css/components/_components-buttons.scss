@@ -1,0 +1,55 @@
+@import "./../settings/settings-colors";
+@import "./../settings/settings-shadows";
+
+.btn {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    }
+    &--secondary {
+        background: rgb(117, 147, 2);
+        color: #fff;
+    }
+
+    &--recipe {
+        background: #759302;
+        border: 1px solid #759302;
+        color: #fcfcd6;     
+        text-decoration: none;     
+        text-align: center;
+        width: 215px;
+        @include desktop {
+            background: #fcfcd6;
+            border: 1px solid rgb(117, 147, 2);
+            color: rgb(117, 147, 2);
+            height: 35px;
+            text-decoration: none;
+            padding: 10px 30px;
+            width: 150px;
+        }
+    }
+    &--main {
+        display: none;
+        @include desktop {
+            display: flex;
+            margin-top: 4px;
+            background: black;
+            color: rgb(117, 147, 2);
+            border-radius: 0%;
+            border: 1px solid rgb(117, 147, 2);
+            padding: 8px 16px;
+            text-decoration: none;
+            margin: 0;
+        }
+        &:hover {
+            color: rgb(104, 122, 28);
+            border: 1px solid rgb(104, 122, 28);
+        }
+    }  
+}

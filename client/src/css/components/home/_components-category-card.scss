@@ -1,0 +1,110 @@
+
+@import "./../../settings/settings-shadows";
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 10px;
+    border:2px solid #8aa327fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+   overflow: hidden;
+   margin-bottom: 20px;
+    &__img {
+        display: flex;
+        height: 150px;
+        @include desktop {
+            height: 300px;
+        }
+        img {
+            object-fit: cover;
+        }
+    }
+    &__info {
+        display: flex;
+        flex-direction: column;
+        min-height: 200px;
+        // justify-content: space-around;
+        align-items: center;
+        // height: 60px;
+        background-color: #fcfcd6;
+        @include desktop {
+            min-height: 60px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        p,
+        h4 {
+            margin-bottom: 20px;
+        }
+        h4 {
+            color: #8aa327fa;
+            font-size: 16px;
+        }
+       
+        &__statistics {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-evenly;
+            position: relative;
+            @include desktop{
+                display: flex;
+                width: 70%;
+            }
+            p {
+                font-size: 12px;
+            }
+            span {
+                font-size: 14px;
+                font-weight: bold;
+            }
+            // @include desktop {
+            //   display: flex;
+            //   flex-direction: column;
+            // }
+        }
+        .icon {
+            // display: inline;
+            margin-right: 10px;
+            text-align: center;
+            @include desktop {
+                display: flex;
+                align-items: center;
+                p{
+                    margin:  0 0 0 10px;
+                    
+                }
+            }
+            img {
+                width: 20px;
+                height: 20px;
+            }
+           
+        }
+    }
+    // &:before {
+    //     content: "";
+    //     // background-color: #F8D67D;
+    //     background-color: #FCFCD6;
+    //     width: 100%;
+    //     height: 20px;
+    //     top: 0;
+    //     left: 0;
+    //     position: absolute;
+    // }
+    .heading{
+        p{
+            text-align: left;
+            font-size: 14px;
+            margin-top: 0;
+        };
+        h3{
+            font-size: 16px;
+        }
+    }
+}

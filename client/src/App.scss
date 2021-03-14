@@ -1,38 +1,27 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@import'./css/elements/_elements-typography';
+@import'./css/elements/_elements-image';
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+@import './css/objects/_objects-containers';
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+@import './css/settings/_settings-colors';
+@import './css/settings/_settings-breakpoints';
+@import './css/settings/_settings-animations';
+@import './css/settings/_settings-shadows';
 
-.App-link {
-  color: #61dafb;
-}
+@import './css/utilities/_utilities-animation';
+@import './css/utilities/_utilities-centered';
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+@import'./css/components/_components-buttons';
+@import'./css/components/_components-header';
+@import'./css/components/_components-navigation';
+@import'./css/components/components-navigation';
+@import'./css/components/_components-footer';
+
+@import'./css/components/components-page';
+
+
+@import'./css/components/home/components-intro';
+@import'./css/components/home/components-main';
+@import'./css/components/home/components-category-card';
