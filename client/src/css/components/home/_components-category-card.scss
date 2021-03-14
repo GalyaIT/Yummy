@@ -26,10 +26,8 @@
     &__info {
         display: flex;
         flex-direction: column;
-        min-height: 200px;
-        // justify-content: space-around;
-        align-items: center;
-        // height: 60px;
+        min-height: 200px;       
+        align-items: center;       
         background-color: #fcfcd6;
         @include desktop {
             min-height: 60px;
@@ -63,13 +61,9 @@
                 font-size: 14px;
                 font-weight: bold;
             }
-            // @include desktop {
-            //   display: flex;
-            //   flex-direction: column;
-            // }
+          
         }
-        .icon {
-            // display: inline;
+        .icon {         
             margin-right: 10px;
             text-align: center;
             @include desktop {
@@ -86,17 +80,7 @@
             }
            
         }
-    }
-    // &:before {
-    //     content: "";
-    //     // background-color: #F8D67D;
-    //     background-color: #FCFCD6;
-    //     width: 100%;
-    //     height: 20px;
-    //     top: 0;
-    //     left: 0;
-    //     position: absolute;
-    // }
+    } 
     .heading{
         p{
             text-align: left;

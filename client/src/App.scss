@@ -1,3 +1,4 @@
+@import './css/generic/_generic-normalize';
 
 @import'./css/elements/_elements-typography';
 @import'./css/elements/_elements-image';
@@ -12,7 +13,6 @@
 @import './css/utilities/_utilities-animation';
 @import './css/utilities/_utilities-centered';
 
-
 @import'./css/components/_components-buttons';
 @import'./css/components/_components-header';
 @import'./css/components/_components-navigation';
@@ -20,7 +20,6 @@
 @import'./css/components/_components-footer';
 
 @import'./css/components/components-page';
-
 
 @import'./css/components/home/components-intro';
 @import'./css/components/home/components-main';

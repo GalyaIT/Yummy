@@ -1,6 +1,7 @@
+@import "../settings/settings-colors";
 .footer{
-    background:#5A6B01;
+    background:map-get($colors,secondary);
     text-align: center;
     height:100%;
-    color:#fff;
+    color:map-get($colors,primary);
 }

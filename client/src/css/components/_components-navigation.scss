@@ -8,21 +8,7 @@
     grid-template-columns: 1fr;
     justify-items: center;
     background-color: #fff6bb;
-    position: relative;
-    //  &:after {
-    //     content: "";
-    //     // background-color: #F8D67D;
-    //     background-color: rgb(117, 147, 2);;
-    //     width: 94%;
-    //     height: 1px;
-    //     top: 180%;
-    //     left: 3%;
-    //     position: absolute;
-    //     @include desktop {
-    //        top:100%;
-
-    //     }
-    // }
+    position: relative;   
     @include desktop {
         grid-template-columns: 60% 40%;
         padding: 20px 0;
@@ -148,31 +134,6 @@
 
 .active {
     display: grid;
-    justify-content: stretch;
-    // display: flex;
-    // width:100%;
+    justify-content: stretch;   
 }
 
-// .navbar-links {
-//     width: 100%;
-// }
-
-
-
-// nav-options {
-//     padding-left: 25px;
-//     display: grid;
-//     grid-template-columns: repeat(3, auto);
-//     grid-gap: 50px;
-//     list-style-type: none;
-//   }
-//   .mobile-option {
-//     display: none;
-//   }
-//   .mobile-menu {
-//     display: none;
-//   }
-  
-//   .option :hover {
-//     color: white;
-//   }

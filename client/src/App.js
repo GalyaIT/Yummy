@@ -9,7 +9,7 @@ function App() {
     <div className="page-wrapper container">
          
     <Header />
-    {/* <MainContainer />          */}
+    <MainContainer />         
     <Footer />
    
 </div>
