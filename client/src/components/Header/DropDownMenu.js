@@ -1,36 +1,21 @@
+import { Link } from 'react-router-dom';
+import DropItem from './DropItem'
 
-
-const DropDownMenu=()=> {
+const DropDownMenu = () => {
 
     return (
 
         <nav className="dropdown ">
             <ul className="dropdown__items container  ">
-                <li className="dropdown__item">
-                    <a href="#">recipes</a>
-                </li>
-                <li className="dropdown__item">
-                    <a href="#">cooks</a>
-                </li>
-                <li className="dropdown__item">
-                    <a href="#">curious</a>
-                </li>
-
-                <li className="dropdown__item">
-                    <a href="#">useful</a>
-                </li>
-                <li className="dropdown__item">
-                    <a href="#">Login</a>
-                </li>
-                <li className="dropdown__item">
-                    <a href="#">Register</a>
-                </li>
-            </ul>         
+                <Link to="/"><DropItem>home</DropItem></Link>
+                <Link to="/recipes"><DropItem>recipes</DropItem></Link>
+                <Link to="/cooks">  <DropItem>cooks</DropItem></Link>
+                <Link to="/curious"><DropItem>curious</DropItem></Link>
+                <Link to="/useful"> <DropItem>useful</DropItem></Link>
+                <Link to="/login"> <DropItem>login</DropItem></Link>
+                <Link to="/register"> <DropItem>register</DropItem></Link>
+            </ul>
         </nav>
-
-
-
-
     )
 }
 

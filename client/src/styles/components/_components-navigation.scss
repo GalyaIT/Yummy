@@ -28,23 +28,23 @@
                 background: none !important;
             }
         }
-        a {
-            text-decoration: none;
-            text-transform: uppercase;
-            color: map-get($colors, secondary-200);
-            padding: 18px;
-            font-size: 16px;
-            transition: color 0.5s ease-out;
-            @include desktop {
-                padding: 0;
-            }
+        // a {
+        //     text-decoration: none;
+        //     text-transform: uppercase;
+        //     color: map-get($colors, secondary-200);
+        //     padding: 18px;
+        //     font-size: 16px;
+        //     transition: color 0.5s ease-out;
+        //     @include desktop {
+        //         padding: 0;
+        //     }
 
-            &:hover {
-                cursor: pointer;               
-                color:map-get($colors, bordeaux);
-                text-decoration: underline;
-            }
-        }
+        //     &:hover {
+        //         cursor: pointer;               
+        //         color:map-get($colors, bordeaux);
+        //         text-decoration: underline;
+        //     }
+        // }
     }
 
     &__items {
@@ -66,6 +66,23 @@
             opacity: 0.8;
             top: 246px;
             height: 60px;
+            a {
+                text-decoration: none;
+                text-transform: uppercase;
+                color: map-get($colors, secondary-200);
+                padding: 18px;
+                font-size: 16px;
+                transition: color 0.5s ease-out;
+                @include desktop {
+                    padding: 0;
+                }
+    
+                &:hover {
+                    cursor: pointer;               
+                    color:map-get($colors, bordeaux);
+                    text-decoration: underline;
+                }
+            }
         }
     }
     .toggle {

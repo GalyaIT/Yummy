@@ -1,10 +1,13 @@
-function HeaderButton(){
-    return(
-<div className="header-btn">
-    <a href="#"className="btn btn--main">register</a>
-    <a href="#"className="btn btn--main">login</a>
-    
-</div>
+import { Link } from 'react-router-dom';
+
+function HeaderButton() {
+    return (
+        <div className="header-btn">
+            <Link to="/login"><span className="btn btn--main">login</span></Link>
+            <Link to="/register"><span className="btn btn--main">register</span></Link>
+
+
+        </div>
     )
 }
 
