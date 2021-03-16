@@ -1,9 +1,9 @@
 import CategoryTemplate from "./CategoryTemplate"
-import soupImg from '../assets/images/soup.jpg';
-import saladImg from '../assets/images/salad.jpg';
-import mainImg from '../assets/images/skewers.jpg';
-import dessertImg from '../assets/images/muffins.jpg';
-import breadImg from '../assets/images/bread.jpg';
+import soupImg from '../../assets/images/soup.jpg';
+import saladImg from '../../assets/images/salad.jpg';
+import mainImg from '../../assets/images/skewers.jpg';
+import dessertImg from '../../assets/images/muffins.jpg';
+import breadImg from '../../assets/images/bread.jpg';
 
 
 const MainContainer = () => {

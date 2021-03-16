@@ -1,7 +1,7 @@
 
-import recipeIcon from '../assets/icons/recipe.svg';
-import heartIcon from '../assets/icons/like.svg';
-import commentIcon from '../assets/icons/comment.svg';
+import recipeIcon from '../../assets/icons/recipe.svg';
+import heartIcon from '../../assets/icons/like.svg';
+import commentIcon from '../../assets/icons/comment.svg';
 import Heading from './Heading';
 
 

@@ -1,11 +1,11 @@
 import React from 'react'
+
 import HeaderButton from './HeaderButton'
 import Navigation from './Navigation'
-import logo from '../assets/images/egg.jpg';
 import DropDownMenu from './DropDownMenu';
-
-import menuIcon from '../assets/icons/menu.svg';
-import crossMenuIcon from '../assets/icons/cross-menu.svg';
+import logo from '../../assets/images/egg.jpg';
+import menuIcon from '../../assets/icons/menu.svg';
+import crossMenuIcon from '../../assets/icons/cross-menu.svg';
 const images = {
     menu: menuIcon,
     cross: crossMenuIcon

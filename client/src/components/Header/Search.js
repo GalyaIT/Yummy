@@ -1,4 +1,4 @@
-import searchImg from '../assets/icons/navigation-search.svg';
+import searchImg from '../../assets/icons/navigation-search.svg';
 
 const Search = () => {
     return (       

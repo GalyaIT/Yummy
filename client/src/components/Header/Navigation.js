@@ -1,6 +1,6 @@
-import Link from './Link';
+
 import LoginAndSearch from './LoginAndSearch'
-import Toggle from './Toggle';
+
 
 
 const Navigation = () => {
@@ -23,8 +23,7 @@ const Navigation = () => {
                 </li>
              
             </ul>
-            <LoginAndSearch />
-            <Toggle />
+            <LoginAndSearch />     
         </nav>
 
 
