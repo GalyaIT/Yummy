@@ -1,0 +1,16 @@
+$colors: (
+    primary: #fff6bb,
+    primary-100: #fcfcd6,
+    primary-200:#e2d3a0,
+
+    secondary: #5a6b01,
+    secondary-100:#687A1C,
+    secondary-200: #759302,
+    secondary-300:#8aa327fa,
+    
+    bordeaux:#3C0901,
+);
+
+@function color($color-name) {
+    @return map-get($colors, $color-name);
+}

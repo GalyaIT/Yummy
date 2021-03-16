@@ -521,7 +521,7 @@ img {
 
 .btn--secondary {
   background: #759302;
-  color: #fff;
+  color: #fcfcd6;
 }
 
 .btn--recipe {
@@ -566,8 +566,8 @@ img {
 }
 
 .btn--main:hover {
-  color: #687a1c;
-  border: 1px solid #687a1c;
+  color: #687A1C;
+  border: 1px solid #687A1C;
 }
 
 .header-wrapper {
@@ -579,6 +579,67 @@ img {
       -ms-flex-align: center;
           align-items: center;
   background-color: #fff6bb;
+}
+
+.header-wrapper .dropdown {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  width: 100%;
+  text-align: -webkit-center;
+  position: relative;
+  bottom: 300px;
+  left: 0;
+  background: #100e09;
+  opacity: 0.95;
+  height: 300px;
+}
+
+@media (min-width: 840px) {
+  .header-wrapper .dropdown {
+    display: none;
+  }
+}
+
+.header-wrapper .dropdown__items {
+  padding: 0;
+}
+
+.header-wrapper .dropdown__item {
+  list-style: none;
+  padding: 16px;
+}
+
+.header-wrapper .dropdown__item:nth-child(5) a,
+.header-wrapper .dropdown__item:nth-child(6) a {
+  color: #00ff2a;
+}
+
+.header-wrapper .dropdown__item a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff6bb;
+  font-weight: 100;
+}
+
+.header-wrapper .dropdown__item:hover {
+  background-color: #070603;
+}
+
+.header-wrapper .toggle {
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+@media (min-width: 840px) {
+  .header-wrapper .toggle {
+    display: none;
+  }
 }
 
 @keyframes fade-in {
@@ -663,7 +724,7 @@ img {
 
 .navbar__item a:hover {
   cursor: pointer;
-  color: #3c0901;
+  color: #3C0901;
   text-decoration: underline;
 }
 
@@ -895,7 +956,7 @@ img {
 
 .navbar__item a:hover {
   cursor: pointer;
-  color: #3c0901;
+  color: #3C0901;
   text-decoration: underline;
 }
 
@@ -1046,7 +1107,7 @@ img {
 }
 
 .footer {
-  background: #5A6B01;
+  background: #5a6b01;
   text-align: center;
   height: 100%;
   color: #fff6bb;
@@ -1058,13 +1119,6 @@ img {
   -ms-grid-rows: 400px 1fr 100px;
       grid-template-rows: 400px 1fr 100px;
   width: 100%;
-}
-
-@media (min-width: 840px) {
-  .page-wrapper {
-    -ms-grid-rows: 400px 1fr 200px;
-        grid-template-rows: 400px 1fr 200px;
-  }
 }
 
 .intro {
@@ -1174,10 +1228,6 @@ img {
 
 .main-wrapper {
   background-color: #fff6bb;
-}
-
-.main-wrapper p {
-  display: block;
 }
 
 .category-card {
@@ -1325,4 +1375,4 @@ img {
 .category-card .heading h3 {
   font-size: 16px;
 }
-/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=main.css.map */

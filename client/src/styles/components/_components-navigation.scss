@@ -7,7 +7,7 @@
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-    background-color: #fff6bb;
+    background-color: map-get($colors, primary);
     position: relative;   
     @include desktop {
         grid-template-columns: 60% 40%;
@@ -31,7 +31,7 @@
         a {
             text-decoration: none;
             text-transform: uppercase;
-            color: rgb(117, 147, 2);
+            color: map-get($colors, secondary-200);
             padding: 18px;
             font-size: 16px;
             transition: color 0.5s ease-out;
@@ -40,8 +40,8 @@
             }
 
             &:hover {
-                cursor: pointer;
-                color: rgb(60, 9, 1);
+                cursor: pointer;               
+                color:map-get($colors, bordeaux);
                 text-decoration: underline;
             }
         }
@@ -88,14 +88,14 @@
 }
 .search-box {
     display: flex;
-    background-color: #fff6bb;
+    background-color: map-get($colors,primary);
     align-items: center;   
     @include desktop {    
         align-items: center;
         display: flex;
         justify-content: end;
         border-radius: 40px;
-        background-color: #fff6bb;      
+        background-color:map-get($colors, primary);      
     }
 
     &__search-image {
@@ -115,13 +115,13 @@
     &__search-txt {
         width: 300px;
         padding: 0 5px;
-        border: 1px solid rgb(117, 147, 2);
+        border: 1px solid map-get($colors, secondary-200);
         border-radius: 50px;
         align-self: center;
         margin-right: 5px;
         padding-left: 20px;
-        background-color: #fcfcd6;
-        color: rgb(117, 147, 2);     
+        background-color: map-get($colors, primary-100);
+        color: map-get($colors, secondary-200);     
         outline: none;        
         font-size: 16px;       
         line-height: 35px;       

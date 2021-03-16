@@ -1,15 +1,14 @@
-
+import Link from './Link';
 import LoginAndSearch from './LoginAndSearch'
 import Toggle from './Toggle';
 
 
-const Navigation=()=> {
-   
-    return (
+const Navigation = () => {
 
+    return (
         <nav className="navbar">
             <ul className="navbar__items container ">
-                <li className="navbar__item">
+            <li className="navbar__item">
                     <a href="#">recipes</a>
                 </li>
                 <li className="navbar__item">
@@ -24,8 +23,8 @@ const Navigation=()=> {
                 </li>
              
             </ul>
-          <LoginAndSearch />
-              <Toggle />
+            <LoginAndSearch />
+            <Toggle />
         </nav>
 
 

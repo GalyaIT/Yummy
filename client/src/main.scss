@@ -1,0 +1,26 @@
+@import './styles/generic/_generic-normalize';
+
+@import'./styles/elements/_elements-typography';
+@import'./styles/elements/_elements-image';
+
+@import './styles/objects/_objects-containers';
+
+@import './styles/settings/_settings-colors';
+@import './styles/settings/_settings-breakpoints';
+@import './styles/settings/_settings-animations';
+@import './styles/settings/_settings-shadows';
+
+@import './styles/utilities/_utilities-animation';
+@import './styles/utilities/_utilities-centered';
+
+@import'./styles/components/_components-buttons';
+@import'./styles/components/_components-header';
+@import'./styles/components/_components-navigation';
+@import'./styles/components/components-navigation';
+@import'./styles/components/_components-footer';
+
+@import'./styles/components/components-page';
+
+@import'./styles/components/home/components-intro';
+@import'./styles/components/home/components-main';
+@import'./styles/components/home/components-category-card';
