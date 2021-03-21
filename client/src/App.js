@@ -9,6 +9,7 @@ import Cooks from './components/Cooks/Cooks'
 import Curious from './components/Curious/Curious'
 import Login from './components/Auth/Login'
 import Register from './components/Auth/Register'
+import NotFound from './components/Errors/NotFound'
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         <Route path="/curious" component={Curious} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route render={() => <h1 >Something went wrong</h1>} />
+        <Route path="*" component={NotFound} />
       </Switch>
       <Footer />
 

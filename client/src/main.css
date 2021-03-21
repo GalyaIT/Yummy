@@ -1459,4 +1459,37 @@ img {
         grid-template-columns: 25% 25% 25% 25%;
   }
 }
+
+.recipes {
+  background-color: #fff6bb;
+}
+
+.recipes ul {
+  background-color: #fff6bb;
+  margin: 0 auto;
+  padding: 5px 0;
+  width: 50%;
+  padding-bottom: 30px;
+}
+
+.recipes ul a {
+  text-decoration: none;
+  list-style: none;
+  color: #759302;
+  -webkit-transition: color 0.5s ease-out;
+  transition: color 0.5s ease-out;
+}
+
+.recipes ul a:hover {
+  color: #3c0901;
+  text-decoration: underline;
+}
+
+.recipes ul a li {
+  text-align: center;
+}
+
+.recipes ul a li:hover {
+  background-color: #f0d57c;
+}
 /*# sourceMappingURL=main.css.map */
