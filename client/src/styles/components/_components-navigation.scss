@@ -12,6 +12,7 @@
     @include desktop {
         grid-template-columns: 60% 40%;
         padding: 20px 0;
+        align-items: center;
     }
     &__item {
         display: inline-block;
@@ -95,22 +96,14 @@
             display: none;
         }
     }
-    &__login-and-search {
-        display: block;
-        margin-top: 30px;
-        @include desktop {
-            display: grid;          
-            justify-content: end;
-        }      
-    }
 }
 .search-box {
     display: flex;
     background-color: map-get($colors,primary);
-    align-items: center;   
-    @include desktop {    
-        align-items: center;
-        display: flex;
+    align-items: center; 
+    margin-top:30px;
+    @include desktop {  
+        margin-top: 0;      
         justify-content: end;
         border-radius: 40px;
         background-color:map-get($colors, primary);      
@@ -150,8 +143,8 @@
     }
 }
 
-.active {
-    display: grid;
-    justify-content: stretch;   
-}
+// .active {
+//     display: grid;
+//     justify-content: stretch;   
+// }
 

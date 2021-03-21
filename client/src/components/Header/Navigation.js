@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
 
-import LoginAndSearch from './LoginAndSearch'
+import Search from './Search'
 import NavItem from './NavItem';
 
 
-
-
 const Navigation = () => {
-
     return (
         <nav className="navbar">
             <ul className="navbar__items container ">
@@ -17,7 +14,7 @@ const Navigation = () => {
                 <Link to="/curious"><NavItem>curious</NavItem></Link>
                 <Link to="/useful"> <NavItem>useful</NavItem></Link>             
             </ul>
-            <LoginAndSearch />     
+            <Search />     
         </nav>
 
 
