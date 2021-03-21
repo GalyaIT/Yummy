@@ -97,6 +97,7 @@
     }
     &__login-and-search {
         display: block;
+        margin-top: 30px;
         @include desktop {
             display: grid;          
             justify-content: end;

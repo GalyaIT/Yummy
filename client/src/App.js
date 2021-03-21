@@ -3,7 +3,7 @@ import './main.scss';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import MainContainer from './components/Home/MainContainer';
-import Recipes from './components/Recipes/Recipes'
+import Recipes from './components/Recipes/RecipesContainer'
 import Useful from './components/Useful/Useful'
 import Cooks from './components/Cooks/Cooks'
 import Curious from './components/Curious/Curious'

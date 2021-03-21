@@ -44,9 +44,8 @@ class Header extends React.Component {
                 <span class="toggle" onClick={() => this.hideComponent()}>
                     <img src={images[imageName]} />
                 </span>
-                {showDropDownMenu && <DropDownMenu />}
-
-                <Navigation />               
+                <Navigation />     
+                {showDropDownMenu && <DropDownMenu />}                        
 
             </header>
         )

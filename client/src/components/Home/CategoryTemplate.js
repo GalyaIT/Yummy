@@ -16,7 +16,7 @@ const CategoryTemplate = (props) => {
             <div className="category-card__info" >
                 <h4>{props.name}</h4>
 
-                <section className="category-card__info__statistics">
+                <section className="category-card__info__statistic">
                     <div className="icon"> <img src={recipeIcon} alt="" />
                         <p> <span>123</span> recipes</p>
                     </div>

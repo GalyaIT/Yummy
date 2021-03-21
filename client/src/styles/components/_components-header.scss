@@ -2,19 +2,20 @@
 .header-wrapper {
     display: grid;
     grid-template-rows: 300px;
-    align-items: center;
+    // align-items: center;
     background-color: map-get($colors, primary);   
+    position: relative;
     .dropdown {
         display: grid;
         grid-template-columns: 1fr;
         width: 100%;
         text-align: -webkit-center;
         position: relative;
-        bottom: 300px;
+        bottom: 367px;
         left: 0;
         background: #100e09;
         opacity: 0.95;
-        height: 300px;
+        height: auto;
        
         @include desktop {
             display: none;
@@ -31,7 +32,7 @@
         }
         &__item {
             list-style: none;
-            padding: 14px;           
+            padding: 13.5px;           
             span {
                 text-decoration: none;
                 text-transform: uppercase;
