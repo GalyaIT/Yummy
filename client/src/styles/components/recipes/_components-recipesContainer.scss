@@ -1,0 +1,16 @@
+.recipes-wrapper {
+    background-color: #fff6bb;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    @include for-tablet-and-laptop {
+        grid-template-columns: 50% 50%;       
+    }
+    @include desktop {
+        grid-template-columns: 33% 33% 33%;      
+    }
+
+    @include for-desktop-up {
+        grid-template-columns: 25% 25% 25% 25%;        
+    }
+}

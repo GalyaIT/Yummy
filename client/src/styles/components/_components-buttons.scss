@@ -12,11 +12,17 @@
         cursor: pointer;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     }
-    &--secondary {
-        background:map-get($colors, secondary-200);
-        color:map-get($colors, primary-100);
-    }
-
+    &--card {
+        width:60px;
+        padding: 2px 0;
+        font-size: 10px;
+        background: #759302;
+         border: 1px solid #759302;
+         color: #fcfcd6;     
+         text-decoration: none;     
+         text-align: center;
+        
+     }
     &--recipe {
         background:map-get($colors,secondary-200);
         border: 1px solid map-get($colors,secondary-200);

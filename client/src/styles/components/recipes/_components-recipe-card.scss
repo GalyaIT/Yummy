@@ -1,0 +1,64 @@
+@import "./../../settings/settings-shadows";
+
+.recipe-card {
+    display: grid;
+    width: 280px;
+    margin: 10px auto;
+    grid-template-rows: 110px 150px;
+    border: 2px solid #8aa327fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+   @include desktop{
+    margin: 10px 5px;
+   }
+    &__description {
+        display: flex;
+        flex-direction: column;
+        justify-items: end;
+        padding-top: 10px;
+        h4 {
+            margin: 0;
+            font-size: 12px;
+        }
+        p {
+            font-size: 10px;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+       
+    }
+
+    &__heading {
+        display: grid;
+        grid-template-columns: 65% 35%;
+        justify-content: space-around;
+        &__img {
+            max-width: 170px;
+            height: auto;
+        }
+    }
+    &__statistic {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .icon {
+            display: flex;
+            align-items: center;
+            p {
+                margin: 0 0 0 10px;
+                font-size: 10px;
+            }
+            img{
+                 width: 10px;
+            height: 10px;
+            }
+           
+        }
+    }
+    &:hover{       
+        border: 2px solid #e9db1bfa;
+    }
+}
