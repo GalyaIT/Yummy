@@ -3,17 +3,40 @@ const Recipe = require('../models/Recipe');
 const User = require('../models/User');
 const { isAuth } = require('../middlewares/auth');
 
-router.get('/all', (req, res, next) => {
-    Recipe.find()
-        .then(recipes => {
-            res.json(recipes);
-            console.log(recipes);
-        })
-        .catch(next);
+// router.get('/all', (req, res, next) => {
+//     Recipe.find()
+//         .then(recipes => {
+//             res.json(recipes);
+//             console.log(recipes);
+//         })
+//         .catch(next);
+// });
+
+
+router.get('/', (req, res, next) => {
+    const category = req.query.category ? req.query.category : ' ';
+    console.log(category);
+    if (category !== ' ') {
+        Recipe.find({ category: category })
+            .populate("creator", "username")
+            .then(recipes => {
+                res.json(recipes);
+                console.log(recipes);
+            })
+            .catch(next);
+    } else {
+        Recipe.find()
+            .populate("creator", "username")
+            .then(recipes => {
+                res.json(recipes);
+                console.log(recipes);
+            })
+            .catch(next);
+    }
 });
 
 router.post('/', async (req, res, next) => {
-    
+
     let recipe = new Recipe(req.body);
     User.findById(req.body._id)
         .then(user => {

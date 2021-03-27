@@ -1,0 +1,37 @@
+@import "../../styles/settings/settings-colors";
+
+.error-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    margin: 0 auto;
+    background-color:map-get($colors, primary );
+
+    & p{
+        font-family: 'Indie- Flower', cursive;
+        font-weight: bold;
+        padding-bottom: 100px;
+        color: map-get($colors, secondary);
+        text-align: center;
+       & img{
+            width: 50px;
+            height: 40px;
+            display: inline;
+            position: relative;
+            top: 2px;
+        }        
+    }
+    h2{
+        font-family: 'Indie-Flower', cursive;
+        color:map-get($colors, orange);
+        text-align: center;
+    }
+    &__img{
+        width:200px;
+        height: auto;
+        padding: 30px 0;
+    }    
+}
+
+

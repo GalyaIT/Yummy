@@ -1,7 +1,8 @@
 import {Link} from 'react-router-dom'
-import './NotFound.css';
+import './_NotFound.scss';
 import sadIcon from '../../assets/icons/sad.svg'
 import homeIcon from '../../assets/icons/home.svg'
+
 const NotFound=()=>{
     return(
 <div className="error-wrapper">

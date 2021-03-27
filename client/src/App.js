@@ -20,10 +20,11 @@ function App() {
         <Route path="/" exact>
           <MainContainer />
         </Route>
-        <Route path="/recipes" component={Recipes} />
-        <Route path="/cooks" component={Cooks} />
-        <Route path="/useful" component={Useful} />
-        <Route path="/curious" component={Curious} />
+        <Route path="/recipes" component={Recipes} exact />
+        <Route path="/recipes/:category" component={Recipes} />
+        {/* <Route path="/cooks" component={Cooks} /> */}
+        {/* <Route path="/useful" component={Useful} />
+        <Route path="/curious" component={Curious} /> */}
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="*" component={NotFound} />
