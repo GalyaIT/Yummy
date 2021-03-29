@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-    & span{
+    &__message{
         grid-column: 1/3;
         font-family: 'Indie-Flower', cursive;
         font-size: 20px;

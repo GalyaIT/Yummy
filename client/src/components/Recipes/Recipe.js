@@ -25,12 +25,12 @@ const Recipe = ({
 
                     <div className="icon">
                         <img src={heartIcon} alt="" />
-                        <p> <span>{likes}</span> likes</p>
+                        <p> <span>{likes}</span></p>
                     </div>
 
                     <div className="icon">
                         <img src={commentIcon} alt="" />
-                        <p><span>300</span> comments</p>
+                        <p><span>300</span> </p>
                     </div>
                     <div className="icon">
                         <img src={userIcon} alt="" />

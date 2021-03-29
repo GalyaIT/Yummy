@@ -2,6 +2,10 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/config');
 
 
+function createToken(data) {
+    return jwt.sign(data, config.SECRET, { expiresIn: '1h' });
+}
+
 function auth(req, res, next) {
     let authorizationHeader = req.get('Authorization');
     if (authorizationHeader) {
@@ -26,5 +30,6 @@ function isAuth(req, res, next) {
 
 module.exports = {
     isAuth,
-    auth
+    auth,
+    createToken
 }

@@ -41,7 +41,7 @@ class Header extends React.Component {
                     </div>
                     <HeaderButton />
                 </section>              
-                <span class="toggle" onClick={() => this.hideComponent()}>
+                <span className="toggle" onClick={() => this.hideComponent()}>
                     <img src={images[imageName]} />
                 </span>
                 <Navigation />     

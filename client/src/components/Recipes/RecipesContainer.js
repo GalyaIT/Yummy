@@ -37,8 +37,8 @@ class RecipesContainer extends React.Component {
         return (
             <div className="recipes">
                 <CategoryNavigation />
-                <div className="recipes-wrapper ">
-                    {this.state.recipes.length === 0 ? <span>No recipes yet...</span> :
+                <div className="recipes-wrapper">
+                    {this.state.recipes.length === 0 ? <span className="recipes-wrapper__message"> No recipes yet...</span> :
                         this.state.recipes.map(x =>
                             <Recipe key={x.id}
                                 title={x.title}

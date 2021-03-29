@@ -5,13 +5,14 @@
     width: 280px;
     margin: 10px auto;
     grid-template-rows: 110px 150px;
-    border: 2px solid #8aa327fa;
+    border: 2px solid map-get($colors, secondary-300);
     border-radius: 10px;
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-   @include desktop{
-    margin: 10px 5px;
-   }
+    height: 220px;
+    @include desktop {
+        margin: 10px 5px;
+    }
     &__description {
         display: flex;
         flex-direction: column;
@@ -24,19 +25,23 @@
         p {
             font-size: 10px;
         }
-        a:hover{
+        a:hover {
             text-decoration: underline;
         }
-       
     }
 
     &__heading {
         display: grid;
-        grid-template-columns: 65% 35%;
+        grid-template-columns: 208px 68px;
         justify-content: space-around;
         &__img {
-            max-width: 170px;
-            height: auto;
+            width: 180px;
+            max-height: 110px;
+            img {
+                width: 180px;
+                max-height: 110px;
+                object-fit: cover;
+            }
         }
     }
     &__statistic {
@@ -51,14 +56,13 @@
                 margin: 0 0 0 10px;
                 font-size: 10px;
             }
-            img{
-                 width: 10px;
-            height: 10px;
+            img {
+                width: 10px;
+                height: 10px;
             }
-           
         }
     }
-    &:hover{       
-        border: 2px solid #e9db1bfa;
+    &:hover {
+        border: 2px solid map-get($colors, yellow-100);
     }
 }

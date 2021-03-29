@@ -1,6 +1,6 @@
 const CategoryItem =(props)=>{
     return(
-        <li className="btn">
+        <li className="btn category-item">
       <span>{props.children}</span>
     </li>
     )
