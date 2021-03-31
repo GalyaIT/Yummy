@@ -1,4 +1,5 @@
 import React from 'react';
+import UserContext from '../../Context'
 import Recipe from './Recipe';
 import CategoryNavigation from './CategoryNavigation';
 import * as recipesService from '../../services/recipesService';
@@ -12,7 +13,7 @@ class RecipesContainer extends React.Component {
             currentCategory: '',
         }
     }
-
+    static contextType = UserContext;
     componentDidMount() {
         recipesService.getAll()
             .then(res => this.setState({ recipes: res }))
@@ -32,8 +33,14 @@ class RecipesContainer extends React.Component {
     }
 
     render() {
-
-
+        const {         
+           loading
+        } = this.context;
+        if (loading === true) {
+            return (
+              <div>Loading...</div>
+            )
+          }
         return (
             <div className="recipes">
                 <CategoryNavigation />

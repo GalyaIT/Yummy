@@ -13,7 +13,7 @@ const { isAuth } = require('../middlewares/auth');
 // });
 
 
-router.get('/', (req, res, next) => {
+router.get('/',  (req, res, next) => {
     const category = req.query.category ? req.query.category : ' ';
     console.log(category);
     if (category !== ' ') {

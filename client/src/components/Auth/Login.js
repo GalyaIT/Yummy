@@ -1,7 +1,9 @@
 import { Component } from 'react'
+import * as authService from '../../services/authService'
+import UserContext from '../../Context'
 import SubmitButton from '../Button/Submit-button'
 import Input from '../Input/Input'
-import * as authService from '../../services/authService'
+
 
 
 class Login extends Component {
@@ -12,6 +14,7 @@ class Login extends Component {
             password: ""
         }
     };
+    static contextType=UserContext;
     handleChange = (event, type) => {
         const newState = {}
         newState[type] = event.target.value;
@@ -23,10 +26,11 @@ class Login extends Component {
         const { username, password } = this.state;
         const url = 'http://localhost:5000/api/auth/login';
         //TODO validation
-
-        await authService.authenticate('http://localhost:5000/api/auth/login',
-             {username, password} , () => {
-                console.log('Yeyyy')
+        console.log(this.context);
+        await authService.authenticate(url,
+             {username, password} , (user) => {
+                console.log('Yeyyy')               
+                this.context.logIn(user)           
                 this.props.history.push('/')
             }, (e) => {
                 console.log('Error', e);

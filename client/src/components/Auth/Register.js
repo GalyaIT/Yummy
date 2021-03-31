@@ -1,7 +1,9 @@
 import { Component } from 'react'
+import * as authService from '../../services/authService'
+import UserContext from '../../Context'
 import SubmitButton from '../Button/Submit-button'
 import Input from '../Input/Input'
-import * as authService from '../../services/authService'
+
 
 class Register extends Component {
     constructor(props) {
@@ -12,6 +14,7 @@ class Register extends Component {
             rePassword:"",
         }
     };
+    static contextType=UserContext;
     handleChange = (event, type) => {
         const newState = {}
         newState[type] = event.target.value;
@@ -23,22 +26,17 @@ class Register extends Component {
         const { username, password, rePassword } = this.state;
         const url = 'http://localhost:5000/api/auth/register';
        //TODO validation
+
        await authService.authenticate(url,
-        { username, password }, () => {
+        { username, password }, (user) => {
             console.log('Yeyyy')
+            this.context.logIn(user)
             this.props.history.push('/')
         }, (e) => {
             console.log('Error', e);
         }
     );
-
-        // const response = await authService.registerUser(username, password, rePassword);
-        // console.log(response);
-
-        // if (response.username && document.cookie['x-auth-token'] !== null) {
-        //     this.props.history.push('/')
-        // }
-    }
+}
 
     render() {
         const { username, password, rePassword } = this.state;

@@ -2,8 +2,8 @@ import React from 'react'
 
 import HeaderButton from './HeaderButton'
 import Navigation from './Navigation'
-import DropDownMenu from './DropDownMenu';
-import logo from '../../assets/images/egg.jpg';
+import DropDownMenu from './DropdownMenu/DropDownMenu';
+import Logo from './Logo/Logo'
 import menuIcon from '../../assets/icons/menu.svg';
 import crossMenuIcon from '../../assets/icons/cross-menu.svg';
 const images = {
@@ -34,11 +34,7 @@ class Header extends React.Component {
             <header className="header-wrapper">
 
                 <section className="intro">
-                    <div className="logo">
-                        <h3>Yummy</h3>
-                        <img src={logo} className="app-logo" alt="logo" />
-                        <p>Join our cooking community</p>
-                    </div>
+                    <Logo />
                     <HeaderButton />
                 </section>              
                 <span className="toggle" onClick={() => this.hideComponent()}>

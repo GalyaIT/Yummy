@@ -8,6 +8,7 @@
     outline: none;
     padding: 5px 20px;
     text-transform: uppercase;
+    font-family: 'Indie-Flower', cursive;
     &:hover {
         cursor: pointer;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
@@ -41,23 +42,23 @@
         }
     }
     &--main {
-        display: none;
+        display: none;        
         @include desktop {
             display: flex;
             margin-top: 4px;
             background: black;
-            color: map-get($colors,secondary-200);
-            border-radius: 0%;
+            color: map-get($colors,secondary-200);            
             border: 1px solid map-get($colors,secondary-200);
+            border-radius: 5px;
             padding: 8px 16px;
             text-decoration: none;
             margin: 0;
             transition: color 0.5s ease-out;
         }
         &:hover {
-            color: map-get($colors,secondary-100);
-            border: 1px solid map-get($colors,secondary-100);
-            text-decoration: underline;
+            color: map-get($colors,secondary-200);
+            border: 1px solid map-get($colors,secondary-200);
+            text-decoration: underline;          
         }
     }  
 }

@@ -22,24 +22,27 @@
         }
         &__items {
             padding: 0;
+            height:300px; 
             a{
                 text-decoration: none;
-                &:nth-child(6) span,
-                &:nth-child(7) span {
-                    color: map-get($colors, secondary-400);
-                }
+                // &:nth-child(6) span,
+                // &:nth-child(7) span {
+                //     color: map-get($colors, secondary-400);
+                // }
             }
         }
         &__item {
             list-style: none;
-            padding: 13.5px;           
+            padding: 17px;                     
             span {
                 text-decoration: none;
                 text-transform: uppercase;
                 color: #fff6bb;
                 font-weight: 100;
             }
-
+            .green{
+                color: map-get($colors, secondary-300); 
+            }
             &:hover {
                 background-color: #070603;
             }

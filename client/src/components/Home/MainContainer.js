@@ -1,3 +1,5 @@
+import {Component} from 'react'
+import UserContext from '../../Context'
 import CategoryTemplate from "./CategoryTemplate"
 import soupImg from '../../assets/images/soup.jpg';
 import saladImg from '../../assets/images/salad.jpg';
@@ -6,24 +8,31 @@ import dessertImg from '../../assets/images/muffins.jpg';
 import breadImg from '../../assets/images/bread.jpg';
 
 
-const MainContainer = () => {
+class MainContainer extends Component {
 
-    return (
-
-        <div className="main-wrapper">
+    static contextType=UserContext;
    
-            <CategoryTemplate name ="Soups" img ={soupImg}/>
-           
-            <CategoryTemplate name ="Salads" img ={saladImg}/>
-         
-            <CategoryTemplate name ="Main Dishes" img ={mainImg}/>
-          
-            <CategoryTemplate name ="Desserts" img ={dessertImg}/>
-           
-            <CategoryTemplate name ="Bread" img ={breadImg}/>
+    render(){
+        console.log(this.context);
 
-        </div>
-    )
+        return (
+
+            <div className="main-wrapper">
+       
+                <CategoryTemplate name ="Soups" img ={soupImg}/>
+               
+                <CategoryTemplate name ="Salads" img ={saladImg}/>
+             
+                <CategoryTemplate name ="Main Dishes" img ={mainImg}/>
+              
+                <CategoryTemplate name ="Desserts" img ={dessertImg}/>
+               
+                <CategoryTemplate name ="Bread" img ={breadImg}/>
+    
+            </div>
+        )
+    }
+    
 }
 
 export default MainContainer;

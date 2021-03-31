@@ -1,7 +1,7 @@
 const DropItem =(props)=>{
     return(
         <li className="dropdown__item">
-        <span>{props.children}</span>
+        <span className={props.className}>{props.children}</span>
     </li>
     )
 }

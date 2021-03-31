@@ -41,6 +41,38 @@ router.post('/login', auth, (req, res, next) => {
         })
 });
 
+
+router.get('/verify', (req, res, next) => {
+
+    let authorization = req.headers.authorization || '';
+    if (authorization) {
+        try {          
+            console.log(authorization);
+            // if (authorization[0] !== 'Bearer') {
+            //     return res.status(401).send();
+            // } else {
+            let  decoded = jwt.verify(authorization, config.SECRET);
+              req.user = decoded;
+              User.findById(req.user.id)
+              .then((user) => {
+                return res.send({
+                  status: true,
+                  user
+                })
+            });             
+                // return next();
+            // }
+        } catch (err) {
+            return res.status(403).send();
+        }
+    } else {
+        return res.status(401).send();
+    }   
+})
+
+
+
+
 router.post('/logout', (req, res, next)=>{
     const token = req.cookies[config.COOKIE_NAME]; //CHECK
     console.log(token);

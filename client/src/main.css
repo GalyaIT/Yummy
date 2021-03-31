@@ -511,6 +511,7 @@ img {
   outline: none;
   padding: 5px 20px;
   text-transform: uppercase;
+  font-family: 'Indie-Flower', cursive;
 }
 
 .btn:hover {
@@ -563,8 +564,8 @@ img {
     margin-top: 4px;
     background: black;
     color: #759302;
-    border-radius: 0%;
     border: 1px solid #759302;
+    border-radius: 5px;
     padding: 8px 16px;
     text-decoration: none;
     margin: 0;
@@ -574,8 +575,8 @@ img {
 }
 
 .btn--main:hover {
-  color: #687A1C;
-  border: 1px solid #687A1C;
+  color: #759302;
+  border: 1px solid #759302;
   text-decoration: underline;
 }
 
@@ -611,20 +612,16 @@ img {
 
 .header-wrapper .dropdown__items {
   padding: 0;
+  height: 300px;
 }
 
 .header-wrapper .dropdown__items a {
   text-decoration: none;
 }
 
-.header-wrapper .dropdown__items a:nth-child(6) span,
-.header-wrapper .dropdown__items a:nth-child(7) span {
-  color: #14B42E;
-}
-
 .header-wrapper .dropdown__item {
   list-style: none;
-  padding: 13.5px;
+  padding: 17px;
 }
 
 .header-wrapper .dropdown__item span {
@@ -632,6 +629,10 @@ img {
   text-transform: uppercase;
   color: #fff6bb;
   font-weight: 100;
+}
+
+.header-wrapper .dropdown__item .green {
+  color: #8aa327fa;
 }
 
 .header-wrapper .dropdown__item:hover {
