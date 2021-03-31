@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import recipeIcon from '../../assets/icons/recipe.svg';
 import heartIcon from '../../assets/icons/like.svg';
 import commentIcon from '../../assets/icons/comment.svg';
@@ -32,7 +33,7 @@ const CategoryTemplate = (props) => {
                     </div>
                 </section>
 
-                <a href="#" className="btn btn--recipe">All recipes</a>
+                <Link to='/recipes' className="btn btn--recipe ">All recipes</Link>
             </div>
         </article>
     )

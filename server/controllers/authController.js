@@ -79,7 +79,7 @@ router.post('/logout', (req, res, next)=>{
     res.clearCookie(config.COOKIE_NAME).send('Logout successfully!');
 })
 
-router.get('/all', (req, res, next) => {
+router.get('/', (req, res, next) => {
     User.find()
     .populate('recipes')
         .then((users) => {            

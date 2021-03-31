@@ -1,0 +1,37 @@
+@import "../../../styles/settings/settings-colors";
+@import "../../../styles/settings/settings-shadows";
+@import "../../../styles/settings/settings-breakpoints";
+
+.cook-card {
+    background-color:map-get($colors, primary-100) ;
+    display: grid;
+    grid-template-columns: 60% 40%;  
+    align-items: center;
+    border: 2px solid map-get($colors, secondary-300);
+    border-radius: 5px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    height: 100px;
+    &:hover {
+        border: 2px solid map-get($colors, yellow-100);
+    }
+
+    p {
+        color: map-get($colors, secondary-200);
+    }
+
+    &__info {
+        display: flex;
+        padding-left: 15px;
+    }
+    &__recipes {
+    }
+    .icon {
+        width: 80px;
+        height: 50px;
+        img {
+            width: 30px;
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+    }
+}

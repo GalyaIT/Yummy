@@ -1,0 +1,32 @@
+@import "../../styles/settings/settings-colors";
+@import "../../styles/settings/settings-shadows";
+@import "../../styles/settings/settings-breakpoints";
+
+.cooks{
+    background-color: map-get($colors , primary );
+    .cooks-wrapper{
+        display:grid;        
+        row-gap: 6px;
+        justify-content: center;
+        align-self: center;
+        justify-items: center;   
+        margin: 20px auto;
+    
+        @include for-tablet-and-laptop {
+            grid-template-columns: 50% 50%;       
+        }
+        @include desktop {
+            grid-template-columns: 33% 33% 33%; 
+            & span{           
+                grid-column: 1/4;
+            }  
+        }
+    
+        @include for-desktop-up {
+            grid-template-columns: 25% 25% 25% 25%; 
+            & span{           
+                grid-column: 1/5;
+            }  
+        }
+    }
+}
