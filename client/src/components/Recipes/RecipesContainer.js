@@ -1,8 +1,9 @@
-import React from 'react';
+import React from 'react'
+import { Redirect } from 'react-router-dom'
 import UserContext from '../../Context'
 import Recipe from './Recipe';
-import CategoryNavigation from './CategoryNavigation';
-import * as recipesService from '../../services/recipesService';
+import CategoryNavigation from './CategoryNavigation'
+import * as recipesService from '../../services/recipesService'
 
 class RecipesContainer extends React.Component {
 
@@ -33,19 +34,24 @@ class RecipesContainer extends React.Component {
     }
 
     render() {
-        const {         
-           loading
+        const {
+            user,
+            loading
         } = this.context;
         if (loading === true) {
             return (
-              <div>Loading...</div>
+                <div>Loading...</div>
             )
-          }
+        }
+        if (!user.loggedIn) {
+            return <Redirect to="/login" />
+        }
         return (
             <div className="recipes">
                 <CategoryNavigation />
                 <div className="recipes-wrapper">
-                    {this.state.recipes.length === 0 ? <span className="recipes-wrapper__message"> No recipes yet...</span> :
+                    {this.state.recipes.length === 0 ?
+                     <span className="recipes-wrapper__message"> No recipes yet...</span> :
                         this.state.recipes.map(x =>
                             <Recipe key={x.id}
                                 title={x.title}
@@ -54,13 +60,7 @@ class RecipesContainer extends React.Component {
                                 creator={x.creator.username}
                                 imageUrl={x.imageUrl}
                                 likes={x.likes.length} />
-                        )}
-                    {/* <Recipe />
-                    <Recipe />
-                    <Recipe />
-                    <Recipe />
-                    <Recipe />
-                    <Recipe /> */}
+                        )}                  
                 </div>
             </div>
         )

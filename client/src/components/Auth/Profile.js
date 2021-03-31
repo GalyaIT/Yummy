@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import {Redirect} from 'react-router-dom'
 import UserContext from '../../Context'
 
 
@@ -11,6 +12,12 @@ class Profile extends Component {
     }
 
     render() {
+            const {      
+                user
+                } = this.context;
+             if(!user.loggedIn){
+                return <Redirect to="/login"/>
+                }
         return (
             <div>
                 <h1>profile page</h1>

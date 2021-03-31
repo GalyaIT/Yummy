@@ -7,23 +7,21 @@ class HeaderButton extends Component {
     static contextType = UserContext;
 
     render() {
-        console.log(this.context);
-        const {
-            user,          
-        } = this.context;
+        const user = this.context.user
+        const loggedIn = this.context.user && this.context.user.loggedIn
         return (
             <div>
-                {user ?
-                 <div className="header-btn" >
-                 <Link to={`/profile/${user.id}`}><span className="btn btn--main">profile</span></Link>                 
-                </div>:
-                     <div className="header-btn" >
-                     <Link to="/login"><span className="btn btn--main">login</span></Link>
-                     <Link to="/register"><span className="btn btn--main">register</span></Link>
-                 </div>
+                {loggedIn ?
+                    <div className="header-btn" >
+                        <Link to={`/profile/${user.id}`}><span className="btn btn--main">profile</span></Link>
+                    </div> :
+                    <div className="header-btn" >
+                        <Link to="/login"><span className="btn btn--main">login</span></Link>
+                        <Link to="/register"><span className="btn btn--main">register</span></Link>
+                    </div>
                 }
             </div>
-         )
+        )
     }
 }
 export default HeaderButton;

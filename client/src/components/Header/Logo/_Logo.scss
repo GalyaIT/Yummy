@@ -1,0 +1,33 @@
+@import "../../../styles/settings/settings-colors";
+@import "../../../styles/settings/_settings-breakpoints";
+ .logo {
+    position: absolute;
+    top: 230px;
+
+    padding-left: 10px;
+    @include desktop {
+        display: inline-block;
+        padding-left: 25px;
+        width: 50%;
+        top: 120px;
+        h3 {
+            font-size: 26px;
+        }
+        p {
+            padding-top: 10px;
+        }
+    }
+    .app-logo {
+        top: 15px;
+        left: 120px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        @include desktop {
+            top: 17px;
+            left: 135px;
+        }
+    }
+}

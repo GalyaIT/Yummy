@@ -2,27 +2,26 @@
 .header-wrapper {
     display: grid;
     grid-template-rows: 300px;
-    // align-items: center;
     background-color: map-get($colors, primary);   
     position: relative;
     .dropdown {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         width: 100%;
         text-align: -webkit-center;
         position: relative;
-        bottom: 367px;
+        bottom: 362px;
         left: 0;
         background: #100e09;
         opacity: 0.95;
-        height: auto;
+        height: 300px;
        
         @include desktop {
             display: none;
         }
-        &__items {
+        &__items {               
             padding: 0;
-            height:300px; 
+            height:300px;
             a{
                 text-decoration: none;
                 // &:nth-child(6) span,

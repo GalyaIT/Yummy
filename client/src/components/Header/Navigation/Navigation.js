@@ -1,20 +1,18 @@
 import { Component } from 'react'
 import { Link } from 'react-router-dom';
-import UserContext from '../../Context'
-import Search from './Search'
+import UserContext from '../../../Context'
+import Search from '../Search/Search'
 import NavItem from './NavItem';
 
 
 class Navigation extends Component {
     static contextType = UserContext;
-    render() {
-        const {         
-            user
-        } = this.context;
-    
+
+    render() {        
+      const loggedIn = this.context.user && this.context.user.loggedIn
         return (
             <nav className="navbar">
-                {user ?
+                {loggedIn ?
                     <ul className="navbar__items container ">
                         <Link to="/"><NavItem>home</NavItem></Link>                       
                         <Link to="/curious"><NavItem>curious</NavItem></Link>

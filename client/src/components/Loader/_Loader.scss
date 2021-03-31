@@ -1,25 +1,31 @@
 @import "../../styles/settings/settings-colors";
+.loader-wrapper{
+    background-color: map-get($colors, primary);
+    width: 100%;
+    height: 100Vh;
 
-.loader { 
-    border-radius: 50%;
-    border-top: 12px solid map-get($colors, secondary-500 );
-    border-bottom: 12px solid map-get($colors, secondary-500 );
-    border-left: 12px solid map-get($colors, yellow-200 );
-    border-right: 12px solid map-get($colors, yellow-200 );
-    width: 100px;
-    height: 100px;
-    position: fixed;
-    top: 45%;
-    left: 45%;
-    transform: translate(-50%, -50%);  
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
+    .loader { 
+        border-radius: 50%;
+        border-top: 12px solid map-get($colors, secondary-500 );
+        border-bottom: 12px solid map-get($colors, secondary-500 );
+        border-left: 12px solid map-get($colors, yellow-200 );
+        border-right: 12px solid map-get($colors, yellow-200 );
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        top: 45%;
+        left: 45%;
+        transform: translate(-50%, -50%);  
+        animation: spin 2s linear infinite;
     }
-    100% {
-        transform: rotate(360deg);
+    
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
+    
 }

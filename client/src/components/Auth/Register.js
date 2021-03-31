@@ -28,8 +28,7 @@ class Register extends Component {
        //TODO validation
 
        await authService.authenticate(url,
-        { username, password }, (user) => {
-            console.log('Yeyyy')
+        { username, password }, (user) => {            
             this.context.logIn(user)
             this.props.history.push('/')
         }, (e) => {

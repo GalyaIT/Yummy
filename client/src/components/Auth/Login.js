@@ -28,8 +28,7 @@ class Login extends Component {
         //TODO validation
         console.log(this.context);
         await authService.authenticate(url,
-             {username, password} , (user) => {
-                console.log('Yeyyy')               
+             {username, password} , (user) => {                             
                 this.context.logIn(user)           
                 this.props.history.push('/')
             }, (e) => {
