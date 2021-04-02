@@ -44,7 +44,7 @@ useEffect(()=> {
         setLoading(false)
         return logOut()
     }   
-        
+    // setLoading(true)
     fetch('http://localhost:5000/api/auth/verify', {
           method: 'GET',                       
           headers: {
@@ -69,7 +69,7 @@ useEffect(()=> {
 
         },[]);      
 
-        if (loading===true) {
+        if (loading) {
         return (
           <Loader />
         )      

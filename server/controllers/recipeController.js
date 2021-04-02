@@ -21,7 +21,7 @@ router.get('/',  (req, res, next) => {
             .populate("creator", "username")
             .then(recipes => {
                 res.json(recipes);
-                console.log(recipes);
+                // console.log(recipes);
             })
             .catch(next);
     } else {
@@ -29,7 +29,7 @@ router.get('/',  (req, res, next) => {
             .populate("creator", "username")
             .then(recipes => {
                 res.json(recipes);
-                console.log(recipes);
+                // console.log(recipes);
             })
             .catch(next);
     }
@@ -38,15 +38,21 @@ router.get('/',  (req, res, next) => {
 router.post('/', async (req, res, next) => {
 
     let recipe = new Recipe(req.body);
-    User.findById(req.body._id)
+    User.findById(req.body.creator)
         .then(user => {
-            console.log(user);
+            // console.log(user);
             recipe.save()
                 .then(createdRecipe => {
                     user.recipes.push(createdRecipe._id);
                     user.save();
-                    return res.status(201).json({ _id: createdRecipe._id });
+                    // console.log(user);
+                    // console.log(createdRecipe);
+                    return res.status(201).json(createdRecipe);
                 })
+                .catch(e=>{
+                    console.log(e);
+                })
+                
         });
 
 });
@@ -55,29 +61,32 @@ router.post('/', async (req, res, next) => {
 router.get('/:id', (req, res, next) => {
     const id = req.params.id;
     Recipe.findById(id)
+    .populate("creator", "username")
         .then(recipe => {
             res.json(recipe);
-            console.log(recipe);
+            // console.log(recipe);
         })
         .catch(next);
 });
 
-router.get('/get-user-recipes/:id', (req, res, next) => {
-    const userId = req.params.id;
+// router.get('/get-user-recipes/:id', (req, res, next) => {
+//     const userId = req.params.id;
 
-    Recipe.find({})
-        .where('creator')
-        .equals(userId)
-        .then(recipes => {
-            res.send(recipes);
-            console.log(recipes);
-        })
-        .catch(next);
-});
+//     Recipe.find({})
+//         .where('creator')
+//         .equals(userId)
+//         .then(recipes => {
+//             res.send(recipes);
+//             // console.log(recipes);
+//         })
+//         .catch(next);
+// });
 
-router.post('/like/:id', (req, res, next) => {
+router.patch('/like/:id', (req, res, next) => {
     const id = req.params.id;
-    const userId = req.body._id;
+    
+    const userId = req.body.userId;
+    console.log(userId);
     console.log(id);
 
     Recipe.findById(id)
@@ -91,7 +100,7 @@ router.post('/like/:id', (req, res, next) => {
 });
 
 
-router.delete('/delete/:id', (req, res, next) => {
+router.delete('/:id', (req, res, next) => {
     const id = req.params.id;
     Recipe.findByIdAndDelete(id)
         .then(() => {
@@ -100,12 +109,18 @@ router.delete('/delete/:id', (req, res, next) => {
         .catch(next);
 })
 
-router.put('/edit/:id', (req, res, next) => {
-    const id = req.params.id;
-    const { title, description, category } = req.body;  // 
-    Recipe.findOneAndUpdate(id, { ...req.body }, { upsert: true }, function (err, recipe) {
+router.put('/:id', (req, res, next) => {
+    const id = req.params.recipeId;
+    const { title, imageUrl, description, category } = req.body;  // 
+    Recipe.findOneAndUpdate(id, {
+        title: title, 
+        imageUrl: imageUrl,
+        description: description,      
+        category: category
+    }, { new: true }, function (err, recipe) {
         if (err) return res.send(500, { error: err });
-        return res.send('Succesfully saved.');
+        // return res.send('Succesfully saved.');
+        return res.send(recipe);
 
     })
 })

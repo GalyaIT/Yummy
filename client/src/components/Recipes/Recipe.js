@@ -1,4 +1,4 @@
-
+import {Link} from 'react-router-dom'
 import heartIcon from '../../assets/icons/like.svg';
 import commentIcon from '../../assets/icons/comment.svg';
 import userIcon from '../../assets/icons/user.svg';
@@ -25,12 +25,12 @@ const Recipe = ({
 
                     <div className="icon">
                         <img src={heartIcon} alt="" />
-                        <p> <span>{likes}</span></p>
+                        <p> <span>{likes} likes</span></p>
                     </div>
 
                     <div className="icon">
                         <img src={commentIcon} alt="" />
-                        <p><span>300</span> </p>
+                        <p><span>30</span> comments </p>
                     </div>
                     <div className="icon">
                         <img src={userIcon} alt="" />
@@ -43,7 +43,7 @@ const Recipe = ({
                 <div className="recipe-card__description centered-container" >
                     <h4>{title}</h4>                   
                     <p>{description}</p>
-                    <a href="#" className="btn btn--card ">more</a>
+                    <Link to={`/recipe-details/${id}`} className="btn btn--card ">more</Link>
                 </div>
             </section>
         </article>

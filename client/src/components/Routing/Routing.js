@@ -2,16 +2,19 @@ import React, { useContext } from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
 
 import UserContext from '../../Context'
-import MainContainer from '../Home/MainContainer'
-import Recipes from '../Recipes/RecipesContainer'
-import Useful from '../Useful/Useful'
-import Cooks from '../Cooks/Cooks'
-import Curious from '../Curious/Curious'
-import Profile from '../Auth/Profile'
-import Login from '../Auth/Login'
-import Register from '../Auth/Register'
-import NotFound from '../Errors/NotFound'
-
+import MainContainerPage from '../Home/MainContainer'
+import RecipesPage from '../Recipes/RecipesContainer'
+import UsefulPage from '../Useful/Useful'
+import CooksPage from '../Cooks/Cooks'
+import CuriousPage from '../Curious/Curious'
+import ProfilePage from '../Auth/Profile'
+import LoginPage from '../Auth/Login'
+import RegisterPage from '../Auth/Register'
+import NotFoundPage from '../Errors/NotFound'
+import CreatePage from '../Recipes/CreateRecipe/CreateRecipe'
+import DetailsPage from '../Recipes/RecipeDetails/RecipeDetails'
+import EditPage from '../Recipes/EditRecipe/EditRecipe'
+import DeletePage from '../Recipes/DeleteRecipe/DeleteRecipe'
 
 const Routing = () => {
     const context = useContext(UserContext)
@@ -19,18 +22,25 @@ const Routing = () => {
 
   
     return (
-        <Switch>      
-            <Route path="/" exact component={MainContainer}/>
-            <Route path="/recipes" component={Recipes} exact />
-            <Route path="/recipes/:category" component={Recipes} />          
-            <Route path="/cooks">{loggedIn ? (<Cooks/>):(<Redirect to="/login"/>)} </Route>           
-            <Route path="/profile" component={Profile} />
-            <Route path="/useful" component={Useful} />
-            <Route path="/curious" component={Curious} />
-            <Route path="/login">{loggedIn ? (<Redirect to="/" />) : (<Login/>)}</Route>
-            <Route path="/register">{loggedIn ? (<Redirect to="/" />) : (<Register/>)}</Route>
-            <Route path="*" component={NotFound} />
-        </Switch>
+       
+ <Switch> 
+          <Route path="/" exact component={MainContainerPage}/>
+          <Route path="/recipes" component={RecipesPage} exact />            
+          <Route path="/recipes/:category" component={RecipesPage} />   
+          <Route path="/create-recipe" component={CreatePage}/> 
+          <Route path="/recipe-details/:id" component={DetailsPage}/> 
+          <Route path="/edit-recipe/:id" component={EditPage}/> 
+          <Route path="/delete-recipe/:id" component={DeletePage}/> 
+          <Route path="/cooks">{loggedIn ? (<CooksPage/>):(<Redirect to="/login"/>)} </Route>           
+          <Route path="/profile" component={ProfilePage} />
+          <Route path="/useful" component={UsefulPage} />
+          <Route path="/curious" component={CuriousPage} />
+          <Route path="/login">{loggedIn ? (<Redirect to="/" />) : (<LoginPage/>)}</Route>
+          <Route path="/register">{loggedIn ? (<Redirect to="/" />) : (<RegisterPage/>)}</Route>
+          <Route path="*" component={NotFoundPage} />
+</Switch>
+       
+       
     )   
 }
 

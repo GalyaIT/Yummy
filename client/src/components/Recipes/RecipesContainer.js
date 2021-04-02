@@ -38,29 +38,31 @@ class RecipesContainer extends React.Component {
             user,
             loading
         } = this.context;
-        if (loading === true) {
-            return (
-                <div>Loading...</div>
-            )
-        }
+        // if (loading === true) {
+        //     return (
+        //         <div>Loading...</div>
+        //     )
+        // }
         if (!user.loggedIn) {
             return <Redirect to="/login" />
         }
         return (
+
             <div className="recipes">
                 <CategoryNavigation />
                 <div className="recipes-wrapper">
                     {this.state.recipes.length === 0 ?
-                     <span className="recipes-wrapper__message"> No recipes yet...</span> :
+                        <span className="recipes-wrapper__message"> No recipes yet...</span> :
                         this.state.recipes.map(x =>
-                            <Recipe key={x.id}
+                            <Recipe key={x._id}
+                                id={x._id}
                                 title={x.title}
                                 description={x.description}
                                 category={x.category}
                                 creator={x.creator.username}
                                 imageUrl={x.imageUrl}
                                 likes={x.likes.length} />
-                        )}                  
+                        )}
                 </div>
             </div>
         )

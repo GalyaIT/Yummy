@@ -51,19 +51,19 @@ class DropDownMenu extends Component {
                     <nav className="dropdown" onClick={this.close} style={{ display: this.state.display }}>
                         {loggedIn ?
                             <ul className="dropdown__items container">
-                                <Link to="/"><DropItem >home</DropItem></Link>
-                                <Link to="/curious"><DropItem>curious</DropItem></Link>
+                                <Link to="/"><DropItem >home</DropItem></Link>                               
                                 <Link to="/useful"> <DropItem>useful</DropItem></Link>
+                                <Link to="/curious"><DropItem>curious</DropItem></Link>
                                 <Link to="/recipes"><DropItem>recipes</DropItem></Link>
-                                <Link to="/cooks">  <DropItem>cooks</DropItem></Link>
+                                <Link to="/cooks">  <DropItem>amateur chefs</DropItem></Link>
                                 <Link to={`profile/${user.id}`}> <DropItem className={className}>profile</DropItem></Link>
                             </ul> :
                             <ul className="dropdown__items container " onClick={this.close}>
-                                <Link to="/"><DropItem> home</DropItem></Link>
-                                <Link to="/curious"><DropItem >curious</DropItem></Link>
+                                <Link to="/"><DropItem> home</DropItem></Link>                               
                                 <Link to="/useful"> <DropItem >useful</DropItem></Link>
-                                <Link to="/login"> <DropItem className={className} >login</DropItem></Link>
+                                <Link to="/curious"><DropItem >curious</DropItem></Link>                              
                                 <Link to="/register"> <DropItem className={className}>register</DropItem></Link>
+                                <Link to="/login"> <DropItem className={className} >login</DropItem></Link>
                             </ul>
                         }
                     </nav>

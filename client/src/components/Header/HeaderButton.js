@@ -15,9 +15,9 @@ class HeaderButton extends Component {
                     <div className="header-btn" >
                         <Link to={`/profile/${user.id}`}><span className="btn btn--main">profile</span></Link>
                     </div> :
-                    <div className="header-btn" >
-                        <Link to="/login"><span className="btn btn--main">login</span></Link>
+                    <div className="header-btn" >                      
                         <Link to="/register"><span className="btn btn--main">register</span></Link>
+                        <Link to="/login"><span className="btn btn--main">login</span></Link>
                     </div>
                 }
             </div>
