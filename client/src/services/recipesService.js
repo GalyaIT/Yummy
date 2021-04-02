@@ -1,4 +1,4 @@
-const url = 'http://localhost:5000/api/recipes';
+const url = 'http://localhost:4000/api/recipes';
 
 
 
@@ -63,5 +63,6 @@ export const update = (recipeId, recipe) => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(recipe)
-    });
+    })
+    .then(res=>res.json())
 };

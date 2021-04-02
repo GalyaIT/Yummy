@@ -24,6 +24,11 @@
         }
         p {
             font-size: 10px;
+            width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;          
+          
         }
         a:hover {
             text-decoration: underline;

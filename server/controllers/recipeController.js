@@ -110,19 +110,10 @@ router.delete('/:id', (req, res, next) => {
 })
 
 router.put('/:id', (req, res, next) => {
-    const id = req.params.recipeId;
-    const { title, imageUrl, description, category } = req.body;  // 
-    Recipe.findOneAndUpdate(id, {
-        title: title, 
-        imageUrl: imageUrl,
-        description: description,      
-        category: category
-    }, { new: true }, function (err, recipe) {
-        if (err) return res.send(500, { error: err });
-        // return res.send('Succesfully saved.');
-        return res.send(recipe);
+    let updates = req.body;
+    Recipe.findOneAndUpdate({ _id: req.params.id }, updates, { new: true })
+      .then(updatedRecipe => res.json(updatedRecipe))
+      .catch(err => res.status(400).json("Error: " + err))
 
-    })
 })
-
 module.exports = router;

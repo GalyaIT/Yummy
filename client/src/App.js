@@ -45,7 +45,7 @@ useEffect(()=> {
         return logOut()
     }   
     // setLoading(true)
-    fetch('http://localhost:5000/api/auth/verify', {
+    fetch('http://localhost:4000/api/auth/verify', {
           method: 'GET',                       
           headers: {
               'Content-type': 'application/json',

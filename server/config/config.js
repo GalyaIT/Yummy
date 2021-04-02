@@ -1,5 +1,5 @@
 const config = {
-    PORT:5000,
+    PORT:4000,
     DB_URI:'mongodb://localhost/Yammy',
     SALT_ROUNDS:10,
     SECRET:'supersecret',

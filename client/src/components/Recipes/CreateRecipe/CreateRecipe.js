@@ -18,8 +18,6 @@ const user = context.user;
         .then(()=>{
             history.push('/recipes')
         })
-
-
     }
 
 
@@ -55,16 +53,11 @@ const user = context.user;
                             <option value="Bread">Bread</option>
                         </select>
                     </span>
-                </p>
-
-            
+                </p>            
                 <SubmitButton title="Add Resipe" />
             </form>
         </section>
-
     )
-
-
 }
 
 export default CreateRecipe

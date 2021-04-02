@@ -30,7 +30,7 @@ export const authenticate = async (url, body, onSuccess, onFailure) => {
 }
 
 export const getAll = () => {
-  const url = 'http://localhost:5000/api/auth';
+  const url = 'http://localhost:4000/api/auth';
   return  fetch(url)
   .then(res => res.json())
   .catch(error => console.log(error));

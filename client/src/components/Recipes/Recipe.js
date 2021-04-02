@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import heartIcon from '../../assets/icons/like.svg';
 import commentIcon from '../../assets/icons/comment.svg';
 import userIcon from '../../assets/icons/user.svg';
-import soupImg from '../../assets/images/soup2.jpg';
+
 
 const Recipe = ({
     id,
@@ -19,7 +19,7 @@ const Recipe = ({
         <article className="recipe-card ">
             <section className="recipe-card__heading ">
                 <div className="recipe-card__heading__img" >
-                    <img src={imageUrl} />
+                    <img src={imageUrl} alt=""/>
                 </div>
                 <div className="recipe-card__statistic">
 
@@ -42,7 +42,7 @@ const Recipe = ({
             <section>
                 <div className="recipe-card__description centered-container" >
                     <h4>{title}</h4>                   
-                    <p>{description}</p>
+                    <p>{description} </p>
                     <Link to={`/recipe-details/${id}`} className="btn btn--card ">more</Link>
                 </div>
             </section>
