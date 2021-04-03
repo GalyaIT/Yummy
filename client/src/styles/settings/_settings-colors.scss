@@ -1,8 +1,11 @@
 $colors: (
     primary: #fff6bb,
+    primary-50:#F9F6D9,
     primary-100: #fcfcd6,
     primary-200:#e2d3a0,
     primary-300:#F6E094,
+    primary-400:#F6F6E4,
+    primary-500:#f0d57c,
 
     secondary: #5a6b01,
     secondary-100:#687A1C,
@@ -16,6 +19,9 @@ $colors: (
     yellow-200:#FDB200,
     orange:#FF4800,
     bordeaux:#3C0901,
+
+
+    blue-50:#0f74af,
 );
 
 @function color($color-name) {

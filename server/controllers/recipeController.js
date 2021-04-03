@@ -69,18 +69,19 @@ router.get('/:id', (req, res, next) => {
         .catch(next);
 });
 
-// router.get('/get-user-recipes/:id', (req, res, next) => {
-//     const userId = req.params.id;
+router.get('/get-user-recipes/:id', (req, res, next) => {
+    const userId = req.params.id;
 
-//     Recipe.find({})
-//         .where('creator')
-//         .equals(userId)
-//         .then(recipes => {
-//             res.send(recipes);
-//             // console.log(recipes);
-//         })
-//         .catch(next);
-// });
+    Recipe.find({})
+        .where('creator')
+        .equals(userId)
+        .populate("creator", "username")
+        .then(recipes => {
+            res.send(recipes);
+            console.log(recipes);
+        })
+        .catch(next);
+});
 
 router.patch('/like/:id', (req, res, next) => {
     const id = req.params.id;

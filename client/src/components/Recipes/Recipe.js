@@ -30,11 +30,11 @@ const Recipe = ({
 
                     <div className="icon">
                         <img src={commentIcon} alt="" />
-                        <p><span>30</span> comments </p>
+                        <p><span>3</span> comments </p>
                     </div>
                     <div className="icon">
                         <img src={userIcon} alt="" />
-                        <p>By <span> {creator}</span>
+                        <p>By @<span>{creator}</span>
                            </p>
                     </div>
                 </div>

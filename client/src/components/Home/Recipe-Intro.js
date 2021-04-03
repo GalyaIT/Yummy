@@ -1,4 +1,4 @@
-const Heading = ()=>{
+const RecipeIntro = ()=>{
     return(
 <div className="heading centered-container">
     <h4>Lorem ipsum dolor</h4>
@@ -8,4 +8,4 @@ const Heading = ()=>{
     )
 }
 
-export default Heading;
+export default RecipeIntro;

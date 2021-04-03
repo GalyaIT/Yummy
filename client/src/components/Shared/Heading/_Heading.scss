@@ -1,0 +1,11 @@
+@import "../../../styles/settings/settings-colors";
+
+.heading-title{
+   padding:30px 0;
+    h1{
+        font-family: 'Indie-Flower', cursive;
+        color:map-get($colors, secondary-200)
+    }
+    z-index: 2;
+
+}

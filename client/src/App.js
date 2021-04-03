@@ -15,6 +15,7 @@ const App = (props) => {
 } : null)
 const [loading, setLoading]=useState(true)
 console.log(loading);
+console.log(user);
 
 const logIn = (userObject) => {
     setUser({
@@ -69,11 +70,11 @@ useEffect(()=> {
 
         },[]);      
 
-        if (loading) {
-        return (
-          <Loader />
-        )      
-     }
+    //     if (loading) {
+    //     return (
+    //       <Loader />
+    //     )      
+    //  }
 
 console.log('user', user)
   return (

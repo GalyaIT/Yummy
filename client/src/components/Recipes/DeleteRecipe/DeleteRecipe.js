@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
+import './_DeleteRecipe.scss'
 import UserContext from '../../../Context'
 import * as recipesService from '../../../services/recipesService';
 
@@ -32,7 +33,7 @@ componentDidMount(){
         return <Redirect to="/login"/>
         }
         return(
-  
+            <div className="recipe-wrapper">
             <article className="recipe-card-details ">
                 <section className="recipe-card-details__heading ">
                     <div className="recipe-card-details__heading__img" >
@@ -40,13 +41,19 @@ componentDidMount(){
                     </div>
                 </section>
                 <section>
-                    <div className="recipe-card-details__description centered-container" >
+                    <div className="recipe-card-details__description" >
                         <h4>{recipe.title}</h4>
-                        <button className="button" onClick={this.onRecipeButtonClickHandler}>
-                            <i className="fas fa-heart"></i>delete </button>
+                        <div className="recipe-delete-confirm">
+                        <p>Are you sure want to delete?</p>
+                        <button className="btn btn--delete" onClick={this.onRecipeButtonClickHandler}>
+                            delete </button>
+                            <Link to={`/recipe-details/${recipe._id}/edit`} className="btn btn--card ">back</Link>
+                        </div>                       
+                        
                     </div>
                 </section>
             </article>
+            </div>
         );
     }     
 }

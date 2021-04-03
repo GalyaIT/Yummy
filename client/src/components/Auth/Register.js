@@ -3,7 +3,7 @@ import * as authService from '../../services/authService'
 import UserContext from '../../Context'
 import SubmitButton from '../Button/Submit-button'
 import Input from '../Input/Input'
-
+import Heading from '../Shared/Heading/Heading'
 
 class Register extends Component {
     constructor(props) {
@@ -24,7 +24,7 @@ class Register extends Component {
     handleSubmit = async (event) => {
         event.preventDefault()
         const { username, password, rePassword } = this.state;
-        const url = 'http://localhost:5000/api/auth/register';
+        const url = 'http://localhost:4000/api/auth/register';
        //TODO validation
 
        await authService.authenticate(url,
@@ -40,26 +40,29 @@ class Register extends Component {
     render() {
         const { username, password, rePassword } = this.state;
         return (
-            <div>
-                <h1>Register</h1>
-                <form onSubmit={this.handleSubmit}>
+            <div className="wrapper">
+                    <Heading title={'Register'}/>
+                <form className="form-wrapper" onSubmit={this.handleSubmit}>
                     <Input
                         value={username}
                         onChange={e => this.handleChange(e, 'username')}
                         label="Username"
-                        id="username" />
+                        id="username"
+                        placeholder="type your username" /> 
                     <Input
                         type="password"
                         value={password}
                         onChange={e => this.handleChange(e, 'password')}
                         label="Password"
-                        id="password" />
+                        id="password"
+                        placeholder="**********" />
                     <Input
                         type="password"
                         value={rePassword}
                         onChange={e => this.handleChange(e, 'rePassword')}
-                        label="rePassword"
-                        id="rePassword" />
+                        label="Confirm Password"
+                        id="rePassword" 
+                        placeholder="**********"/>
 
                     <SubmitButton title="Register" />
                 </form>

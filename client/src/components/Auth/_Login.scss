@@ -1,0 +1,35 @@
+@import "../../styles/settings/settings-colors";
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    background-color: map-get($colors, primary);
+
+    .form-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;        
+        height: auto;
+        margin: 0 auto;      
+        z-index: 2;
+    }
+    &::before {
+        content: " ";
+        background-image: url(../../assets/images/form-background-2.jpg);
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        height: auto;
+        opacity: 0.5;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}

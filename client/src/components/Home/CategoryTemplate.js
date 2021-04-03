@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import recipeIcon from '../../assets/icons/recipe.svg';
 import heartIcon from '../../assets/icons/like.svg';
 import commentIcon from '../../assets/icons/comment.svg';
-import Heading from './Heading';
+import RecipeIntro from './Recipe-Intro';
 
 
 
@@ -10,7 +10,7 @@ const CategoryTemplate = (props) => {
 
     return (
         <article className="category-card">
-            <Heading />
+            <RecipeIntro />
             <div className="category-card__img" >
                 <img src={props.img} alt="" />
             </div>

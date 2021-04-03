@@ -33,8 +33,8 @@ const Routing = () => {
           <Route path="/delete-recipe/:id" component={DeletePage}/> 
           <Route path="/cooks">{loggedIn ? (<CooksPage/>):(<Redirect to="/login"/>)} </Route>           
           <Route path="/profile" component={ProfilePage} />
-          <Route path="/useful" component={UsefulPage} />
-          <Route path="/curious" component={CuriousPage} />
+          {/* <Route path="/useful" component={UsefulPage} />
+          <Route path="/curious" component={CuriousPage} /> */}
           <Route path="/login">{loggedIn ? (<Redirect to="/" />) : (<LoginPage/>)}</Route>
           <Route path="/register">{loggedIn ? (<Redirect to="/" />) : (<RegisterPage/>)}</Route>
           <Route path="*" component={NotFoundPage} />

@@ -511,7 +511,7 @@ img {
   outline: none;
   padding: 5px 20px;
   text-transform: uppercase;
-  font-family: 'Indie-Flower', cursive;
+  font-family: "Indie-Flower", cursive;
 }
 
 .btn:hover {
@@ -550,6 +550,16 @@ img {
     padding: 10px 30px;
     width: 150px;
   }
+}
+
+.btn--like {
+  color: #137899;
+  padding: 3px 10px;
+}
+
+.btn--delete {
+  color: #e71313;
+  padding: 3px 10px;
 }
 
 .btn--main {
@@ -600,7 +610,7 @@ img {
   width: 100%;
   text-align: -webkit-center;
   position: relative;
-  bottom: 362px;
+  bottom: 352px;
   left: 0;
   background: #100e09;
   opacity: 0.95;
@@ -691,7 +701,6 @@ img {
   .navbar {
     -ms-grid-columns: 60% 40%;
         grid-template-columns: 60% 40%;
-    padding: 20px 0;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -809,9 +818,16 @@ img {
 .page-wrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 400px 1fr 100px;
-      grid-template-rows: 400px 1fr 100px;
+  -ms-grid-rows: 370px 1fr 100px;
+      grid-template-rows: 370px 1fr 100px;
   width: 100%;
+}
+
+@media (min-width: 840px) {
+  .page-wrapper {
+    -ms-grid-rows: 360px 1fr 100px;
+        grid-template-rows: 360px 1fr 100px;
+  }
 }
 
 .intro {
@@ -1077,8 +1093,8 @@ img {
 .recipe-card__heading {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 208px 68px;
-      grid-template-columns: 208px 68px;
+  -ms-grid-columns: 190px 85px;
+      grid-template-columns: 190px 85px;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }

@@ -66,3 +66,9 @@ export const update = (recipeId, recipe) => {
     })
     .then(res=>res.json())
 };
+
+export const getAllOwn = (userId)=>{
+    return fetch(`${url}/get-user-recipes/${userId}`)
+    .then(res => res.json())
+    .catch(error => console.log(error));
+}

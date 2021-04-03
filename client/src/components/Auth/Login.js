@@ -1,8 +1,10 @@
 import { Component } from 'react'
+import './_Login.scss'
 import * as authService from '../../services/authService'
 import UserContext from '../../Context'
 import SubmitButton from '../Button/Submit-button'
 import Input from '../Input/Input'
+import Heading from '../Shared/Heading/Heading'
 
 
 
@@ -24,7 +26,7 @@ class Login extends Component {
     handleSubmit = async (event) => {
         event.preventDefault()
         const { username, password } = this.state;
-        const url = 'http://localhost:5000/api/auth/login';
+        const url = 'http://localhost:4000/api/auth/login';
         //TODO validation
         console.log(this.context);
         await authService.authenticate(url,
@@ -41,22 +43,23 @@ class Login extends Component {
     render() {
         const { username, password } = this.state;
         return (
-            <div>
-                <h1>Login</h1>
-                <form onSubmit={this.handleSubmit}>
+            <div className="wrapper">
+                <Heading title={'Login'}/>            
+                <form className="form-wrapper" onSubmit={this.handleSubmit}>
                     <Input
                         value={username}
                         onChange={e => this.handleChange(e, 'username')}
                         label="Username"
-                        id="username" />
+                        id="username"
+                        placeholder="type your username" />
                     <Input
                         type="password"
                         value={password}
                         onChange={e => this.handleChange(e, 'password')}
                         label="Password"
-                        id="password" />
-
-                    <SubmitButton title="Login" />
+                        id="password"
+                        placeholder="**********"  />
+                      <SubmitButton title="Login" />
                 </form>
             </div>
         )
