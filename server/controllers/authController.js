@@ -5,7 +5,7 @@ const config= require('../config/config');
 const { auth, createToken } = require('../middlewares/auth');
 
 
-router.post('/register', auth, (req, res) => {
+router.post('/register', auth, (req, res, next) => {
     // TODO: Check if user exists
 
     let user = new User(req.body);
@@ -19,6 +19,7 @@ router.post('/register', auth, (req, res) => {
         })
         .catch((err) => {
             console.log(err);
+            next({ status: 409, message: 'Username already exists!', type: 'ERROR' })
         });
 
 });
