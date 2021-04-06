@@ -1,5 +1,8 @@
 import { Component, useContext } from 'react'
+import './_CreateRecipe.scss'
+
 import Input from '../../Input/Input'
+import Heading from '../../Shared/Heading/Heading'
 import SubmitButton from '../../Button/Submit-button'
 import * as RecipesService from '../../../services/recipesService'
 import UserContext from '../../../Context'
@@ -8,6 +11,7 @@ const CreateRecipe = ({history}) => {
 
 const context = useContext(UserContext)
 const user = context.user;
+
 
     const createRecipeSubmitHandler = (e) => {
         e.preventDefault()
@@ -22,28 +26,28 @@ const user = context.user;
 
 
     return (
-        <section>
-            <h1>Add Recipe</h1>
-            <form onSubmit={createRecipeSubmitHandler}>
-                <div>
-                    <label htmlFor="title">Title</label>                
-                    <input type='text' id='title' />
+        <section className="wrapper">
+           <Heading title={'Add recipe :)'}/>   
+            <form className="form-wrapper"onSubmit={createRecipeSubmitHandler}>
+                <Input
+                    label="Title"
+                    id="title"
+                    placeholder="Type title to your recipe" />
+                <Input
+                    label="ImageUrl"
+                    id="imageUrl"
+                    placeholder="Type imageUrl" />               
+                <div className="recipe-description">
+                    {/* <label for="description">Description</label> */}
+                   
+                        <textarea rows="5" cols="50" type="text" name="description" id="description"
+                            placeholder="Type your text here...."></textarea>
+                        {/* <span class="actions"></span> */}
+                  
                 </div>
-                <div>
-                    <label htmlFor="imageUrl">ImageUrl</label>                
-                    <input type='text' id='imageUrl' />
-                </div>
-                <p >
-                    <label for="description">Description</label>
-                    <span >
-                        <textarea rows="4" cols="45" type="text" name="description" id="description"
-                            placeholder="Description"></textarea>
-                        <span class="actions"></span>
-                    </span>
-                </p>
-                <p>
-                    <label htmlFor="Category">Category</label>
-                    <span>
+                <div className="recipe-category">
+                    <label htmlFor="Category">Category:</label>
+                   
                         <select name="category" type="text">
                             <option value="">---Select category---</option>
                             <option value="Soups">Soups</option>
@@ -52,9 +56,9 @@ const user = context.user;
                             <option value="Desserts">Desserts</option>
                             <option value="Bread">Bread</option>
                         </select>
-                    </span>
-                </p>            
-                <SubmitButton title="Add Resipe" />
+                    
+                </div>            
+                <SubmitButton title="Add" />
             </form>
         </section>
     )

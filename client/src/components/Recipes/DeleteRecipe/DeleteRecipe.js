@@ -29,9 +29,9 @@ componentDidMount(){
        const {recipe}=this.state
        const {user} = this.context;
       
-     if(!user.loggedIn){
-        return <Redirect to="/login"/>
-        }
+    //  if(!user.loggedIn){
+    //     return <Redirect to="/login"/>
+    //     }
         return(
             <div className="recipe-wrapper">
             <article className="recipe-card-details ">

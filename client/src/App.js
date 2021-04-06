@@ -15,7 +15,6 @@ const App = (props) => {
 } : null)
 const [loading, setLoading]=useState(true)
 console.log(loading);
-console.log(user);
 
 const logIn = (userObject) => {
     setUser({
@@ -26,7 +25,7 @@ const logIn = (userObject) => {
 
 const logOut = () => {
     // document.cookie = "x-auth-token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
-     window.localStorage.removeItem('x-auth-token');
+    localStorage.removeItem('x-auth-token');
     setUser({
         loggedIn: false
     })
@@ -38,7 +37,7 @@ const logOut = () => {
 
 useEffect(()=> {
             // const token = getCookie('x-auth-token');
-    const token = window.localStorage.getItem('x-auth-token');
+    const token = localStorage.getItem('x-auth-token');
     console.log(token);
 
     if (!token) {
@@ -54,7 +53,9 @@ useEffect(()=> {
           }
         })
          .then(promise => {
+          console.log(promise);
               return promise.json()
+              
           })
           .then(response => {
               if (response.status) {                      
@@ -70,11 +71,11 @@ useEffect(()=> {
 
         },[]);      
 
-    //     if (loading) {
-    //     return (
-    //       <Loader />
-    //     )      
-    //  }
+        if (loading) {
+        return (
+          <Loader />
+        )      
+     }
 
 console.log('user', user)
   return (
@@ -92,4 +93,3 @@ console.log('user', user)
   )
 }
 export default App;
-

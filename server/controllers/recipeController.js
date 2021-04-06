@@ -100,6 +100,22 @@ router.patch('/like/:id', (req, res, next) => {
         .catch(next);
 });
 
+router.patch('/favorite/:id', (req, res, next) => {
+    const recipeId = req.params.id;
+    
+    const userId = req.body.userId;
+    console.log(userId);
+    console.log(recipeId);
+
+    User.findById(userId)
+        .then(user => {
+            user.favoriteRecipes.push(recipeId);
+            user.save();
+            res.json(user);
+            console.log(user);
+        })
+        .catch(next);
+});
 
 router.delete('/:id', (req, res, next) => {
     const id = req.params.id;

@@ -11,7 +11,7 @@ class RecipesContainer extends React.Component {
         super(props);
         this.state = {
             recipes: [],
-            currentCategory: '',
+            currentCategory: '',            
         }
     }
     static contextType = UserContext;
@@ -35,17 +35,18 @@ class RecipesContainer extends React.Component {
 
     render() {
         const {
-            user,
-            loading
+            user,           
         } = this.context;
+        console.log(user);
+       
         // if (loading === true) {
         //     return (
         //         <div>Loading...</div>
         //     )
         // }
-        if (!user.loggedIn) {
-            return <Redirect to="/login" />
-        }
+        // if (!user.loggedIn) {
+        //     return <Redirect to="/login" />
+        // }
         return (
 
             <div className="recipes">

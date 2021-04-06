@@ -1,7 +1,8 @@
 @import "../../styles/settings/settings-colors";
 .btn--submit{
-    width:100px;
+    width:max-content;
     background-color: map-get($colors,secondary-200 );
     color:map-get($colors, primary );
     align-self: center;
+    margin:10px 0;
 }

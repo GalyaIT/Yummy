@@ -1,0 +1,51 @@
+@import "../../../styles/settings/settings-colors";
+
+.wrapper {
+    .form-wrapper {
+        .recipe-description {
+            display: flex;
+            width: 80%;
+            margin: 0 auto;
+            justify-content: center;
+            margin: 20px 0;
+            textarea {
+                background-color: map-get($colors, primary-400);
+                border: 1px solid #888;
+                outline: none;
+                resize: none;
+                border: 1px solid map-get($colors, secondary-200);
+                border-radius: 5px;
+                color: map-get($colors, secondary);
+                min-width: 270px;
+            }
+            ::placeholder {
+                color: map-get($colors, secondary);
+                padding: 10px 0 0 10px;
+                opacity: 0.7;
+            }
+        }
+        .recipe-category {
+            display: flex;
+            width: 300px;
+            justify-content: space-around;
+            padding-right: 30px;
+            margin: 20px 0;
+            label {
+                color: map-get($colors, secondary);
+                font-weight: bold;
+            }
+            select {
+                border: 1px solid map-get($colors, secondary-200);
+                border-radius: 5px;
+                outline: none;
+                width: 160px;
+                color: map-get($colors, secondary);
+            }
+        }
+        .flex-buttons{
+            display:flex;
+            width:155px;
+            justify-content: space-between;
+        }
+    }
+}

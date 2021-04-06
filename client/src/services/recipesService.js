@@ -72,3 +72,14 @@ export const getAllOwn = (userId)=>{
     .then(res => res.json())
     .catch(error => console.log(error));
 }
+
+export const addFavorite =(recipeId, userId)=>{
+    return fetch(`${url}/favorite/${recipeId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({userId})
+    })
+        .then(res => res.json());
+}

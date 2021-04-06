@@ -89,4 +89,15 @@ router.get('/', (req, res, next) => {
 }),
 
 
+// router.get('/:id', (req, res, next) => {
+//     const userId = req.params.id;    
+   
+//     User.findById()   
+//         .then((user) => {  
+//             console.log(user);         
+//             res.send(user);
+//         })
+//         .catch(next)
+// }),
+
 module.exports = router;
