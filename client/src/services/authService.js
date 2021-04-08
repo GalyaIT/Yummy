@@ -12,7 +12,10 @@ export const authenticate = async (url, body, onSuccess, onFailure) => {
     })
     const authToken = promise.headers.get('Authorization');
     // document.cookie = `x-auth-token=${authToken}`;
-   localStorage.setItem('x-auth-token', authToken);
+    if (authToken!== null){
+      localStorage.setItem('x-auth-token', authToken);
+    }
+  //  localStorage.setItem('x-auth-token', authToken);
     const response = await promise.json()
 
     if (response.username && authToken) {

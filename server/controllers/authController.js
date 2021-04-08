@@ -31,7 +31,8 @@ router.post('/login', auth, (req, res, next) => {
         .then((user) => Promise.all([user, user.matchPassword(password)]))
         .then(([user, match]) => {
             if (!match) {
-                res.status(401).send('Invalid password');
+                // res.status(401).send('Invalid password');
+                next({ status: 401, message: 'No such user or password!', type: 'ERROR' })
                 return;
             }           
             const token = createToken({ id: user._id, username: user.username });
