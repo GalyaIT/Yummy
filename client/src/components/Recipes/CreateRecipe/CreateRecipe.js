@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import {Redirect} from 'react-router-dom'
 import './_CreateRecipe.scss'
 
 import Input from '../../Input/Input'
@@ -76,6 +77,10 @@ class CreateRecipe extends Component {
 
     render() {
         const { title, imageUrl, description, category, errors } = this.state;
+        const loggedIn = this.context.user && this.context.user.loggedIn
+        if (!loggedIn) {
+            return <Redirect to="/login" />
+        }
         return (
 
             <section className="wrapper">

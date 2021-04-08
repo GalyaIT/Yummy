@@ -44,9 +44,9 @@ class RecipesContainer extends React.Component {
         //         <div>Loading...</div>
         //     )
         // }
-        // if (!user.loggedIn) {
-        //     return <Redirect to="/login" />
-        // }
+        if (!user.loggedIn) {
+            return <Redirect to="/login" />
+        }
         return (
 
             <div className="recipes">

@@ -60,14 +60,15 @@ class RecipeDetails extends Component {
         let isLiked = likes.some(x => x === userId)
         // let isFavorite =this.user.favoriteRecipes.some(x=>x===recipe.id)
         // console.log(isFavorite);
-        const {
-            user,
-        } = this.context;
+        // const {
+        //     user,
+        // } = this.context;
         console.log(creator);
         console.log(isCreator);
-        // if (!user.loggedIn) {
-        //     return <Redirect to="/login" />
-        // }
+        const loggedIn = this.context.user && this.context.user.loggedIn
+        if (!loggedIn) {
+            return <Redirect to="/login" />
+        }
         return (
             <div className="recipe-wrapper">
                 <article className="recipe-card-details ">

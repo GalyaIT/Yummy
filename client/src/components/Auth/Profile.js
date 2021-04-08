@@ -24,16 +24,23 @@ class Profile extends Component {
         this.props.history.push('/')
     }
 
-
-
-    onMyOwnRecipeHandler = () => {
+    componentDidMount(){
         let userId = this.context.user.id;
         recipesService.getAllOwn(userId)
-            .then(res => {
-                console.log(res);
-                this.setState({ recipes: res, count: res.length })
-            })
+        .then(res => {
+            console.log(res);
+            this.setState({ recipes: res, count: res.length })
+        })
     }
+
+    // onMyOwnRecipeHandler = () => {
+    //     let userId = this.context.user.id;
+    //     recipesService.getAllOwn(userId)
+    //         .then(res => {
+    //             console.log(res);
+    //             this.setState({ recipes: res, count: res.length })
+    //         })
+    // }
 
 
     render() {
