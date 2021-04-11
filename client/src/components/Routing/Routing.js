@@ -6,6 +6,7 @@ import MainContainerPage from '../Home/MainContainer'
 import RecipesPage from '../Recipes/RecipesContainer'
 // import UsefulPage from '../Useful/Useful'
 import CooksPage from '../Cooks/Cooks'
+import CookRecipesPage from '../Cooks/CookRecipes/CookRecipes'
 // import CuriousPage from '../Curious/Curious'
 import ProfilePage from '../Auth/Profile'
 import LoginPage from '../Auth/Login'
@@ -31,8 +32,10 @@ const Routing = () => {
           <Route path="/recipe-details/:id" component={DetailsPage}/> 
           <Route path="/edit-recipe/:id" component={EditPage}/> 
           <Route path="/delete-recipe/:id" component={DeletePage}/> 
-          <Route path="/cooks">{loggedIn ? (<CooksPage/>):(<Redirect to="/login"/>)} </Route>           
-          <Route path="/profile" component={ProfilePage} />
+          <Route path="/cooks" exact>{loggedIn ? (<CooksPage/>):(<Redirect to="/login"/>)} </Route>  
+          {/* <Route path="/cooks/:id">{loggedIn ? (<CookRecipesPage/>):(<Redirect to="/login"/>)} </Route>          */}
+          <Route path="/cooks/:id" component={CookRecipesPage} />
+          <Route path="/profile/:id" component={ProfilePage} />
           {/* <Route path="/useful" component={UsefulPage} />
           <Route path="/curious" component={CuriousPage} /> */}
           <Route path="/login">{loggedIn ? (<Redirect to="/" />) : (<LoginPage/>)}</Route>

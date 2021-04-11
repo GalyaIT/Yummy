@@ -1,4 +1,3 @@
-
 import { useState, useContext, useEffect, useRef } from 'react'
 import {  Link } from 'react-router-dom'
 import './_Profile.scss'
@@ -7,13 +6,15 @@ import UserContext from '../../Context'
 import SubmitButton from '../Button/Submit-button'
 import Recipe from '../Recipes/Recipe'
 
-
 const Profile = ({ history }) => {
+
 
     const [recipes, setRecipes] = useState([])
     const [favoriteRecipes, setFavoriteRecipes] = useState([])   
     const viewRecipesRef = useRef(null);  
-    const viewFavRecipesRef = useRef(null);  
+    const viewFavRecipesRef = useRef(null); 
+    const recipesRef = useRef(null);  
+    const favRecipesRef = useRef(null);  
     const context = useContext(UserContext);
     const username = context.user.username
 
@@ -42,11 +43,14 @@ const Profile = ({ history }) => {
         const section = viewRecipesRef.current     
         if(section.style.display==='none') {
              section.style='display:flex'
+             recipesRef.current.classList.add('active-container')
+             favRecipesRef.current.classList.remove('active-container')
              viewFavRecipesRef.current.style="display:none"
-             
+          
+            
         }else{
             section.style='display:none'        
-           
+            recipesRef.current.classList.remove('active-container')
         } 
     }
 
@@ -54,9 +58,13 @@ const Profile = ({ history }) => {
         const section = viewFavRecipesRef.current      
         if(section.style.display==='none') {
              section.style='display:flex'
-             viewRecipesRef.current.style="display:none"           
+             favRecipesRef.current.classList.add('active-container')
+             recipesRef.current.classList.remove('active-container')
+             viewRecipesRef.current.style="display:none" 
+
         }else{
-            section.style='display:none'      
+            section.style='display:none' 
+            favRecipesRef.current.classList.remove('active-container')
         }     
     }
  
@@ -74,10 +82,10 @@ const Profile = ({ history }) => {
                 </div>
 
                 <section className="recipes-section" >
-                    <div className="recipes-section__items" onClick={showMyOwnRecipes} >
+                    <div className="recipes-section__items" onClick={showMyOwnRecipes} ref={recipesRef}>
                         <h5>My recipes ({recipes.length})</h5>
                     </div>
-                    <div className="recipes-section__items" onClick={showMyFavoriteRecipes} >
+                    <div className="recipes-section__items" onClick={showMyFavoriteRecipes}ref={favRecipesRef} >
                         <h5>Fovorite recipes ({favoriteRecipes.length})</h5>
                     </div>
                 </section>

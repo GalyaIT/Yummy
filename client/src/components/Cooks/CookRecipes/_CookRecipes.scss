@@ -1,0 +1,11 @@
+.personal-recipes-section{
+    display:flex;
+flex-direction: column;
+
+    &__heading{
+        text-align: center;
+        h1{
+            font-size: 20px;
+        }
+    }
+}

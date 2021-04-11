@@ -1,3 +1,4 @@
+import{Link}from 'react-router-dom'
 import './_Cook.scss'
 import userIcon from '../../../assets/icons/user.svg';
 import recipeIcon from '../../../assets/icons/recipe.svg';
@@ -20,7 +21,7 @@ const Cook = ({
                 <section className="recipe-card__recipes">
                     <div className="icon">
                         <img src={recipeIcon} alt="recipe" />
-                        <p> <span>{recipes} recipes</span></p>
+                        <Link to={`/cooks/${id}`}><span>{recipes.length} recipes</span></Link>
                     </div>                   
                 </section>
           
