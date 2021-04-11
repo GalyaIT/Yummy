@@ -91,15 +91,35 @@ router.get('/', (req, res, next) => {
 }),
 
 
-// router.get('/:id', (req, res, next) => {
-//     const userId = req.params.id;    
+router.get('/:id', (req, res, next) => {
+    const userId = req.params.id;    
    
-//     User.findById()   
-//         .then((user) => {  
-//             console.log(user);         
+    User.findById(userId)
+    .populate('recipes')
+    .populate('favoriteRecipes')   
+        .then((user) => {  
+            console.log(user);         
+            res.send(user);
+        })
+        .catch(next)
+}),
+
+// router.patch('/favorite/:id', (req, res, next) => {
+//     const id = req.params.id;
+    
+//     const recipeId = req.body.recipeId;
+//     console.log(id);
+//     console.log(recipeId);
+
+//     User.findById(id)
+//         .then(user => {
+//             user.favoriteRecipes.push(recipeId);
+//             user.save();
 //             res.send(user);
+//             console.log(user);
 //         })
-//         .catch(next)
-// }),
+//         .catch(next);
+// });
+
 
 module.exports = router;

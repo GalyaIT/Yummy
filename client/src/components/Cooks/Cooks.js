@@ -8,7 +8,7 @@ import Pagination from '../Shared/Pagination/Pagination'
 const Cooks = () => {
     const [cooks, setCooks] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [cooksPerPage] = useState(6)
+    const [itemsPerPage] = useState(6)
 
 
     useEffect(() => {
@@ -21,10 +21,10 @@ const Cooks = () => {
 
     }, [])
 
-    const indexOfLastItem = currentPage * cooksPerPage
-    const indexOfFirstItem = indexOfLastItem - cooksPerPage
+    const indexOfLastItem = currentPage * itemsPerPage
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage
     const currentItems = cooks.slice(indexOfFirstItem, indexOfLastItem)
-    const howManyPages = Math.ceil(cooks.length / cooksPerPage)
+    const howManyPages = Math.ceil(cooks.length /itemsPerPage)
 
 console.log(howManyPages);
 

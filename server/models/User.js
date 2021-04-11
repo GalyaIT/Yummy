@@ -19,10 +19,10 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'Recipe'
     }],
-    likedRecipes: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'Recipe'
-    }],
+    // likedRecipes: [{
+    //     type: mongoose.Types.ObjectId,
+    //     ref: 'Recipe'
+    // }],
     favoriteRecipes: [{
         type: mongoose.Types.ObjectId,
         ref: 'Recipe'

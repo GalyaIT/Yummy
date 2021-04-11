@@ -69,6 +69,7 @@ router.get('/:id', (req, res, next) => {
         .catch(next);
 });
 
+
 router.get('/get-user-recipes/:id', (req, res, next) => {
     const userId = req.params.id;
 
@@ -82,6 +83,21 @@ router.get('/get-user-recipes/:id', (req, res, next) => {
         })
         .catch(next);
 });
+
+router.get('/get-user-recipes-favorite/:id', (req, res, next)=>{
+    const userId = req.params.id;
+
+   Recipe.find({})   
+    .populate("creator", "username")
+    .where('favorites').in(userId)
+    .then(recipes=>{
+       
+        res.send(recipes);
+            console.log(recipes);
+            
+    })
+    .catch(next);   
+})
 
 router.patch('/like/:id', (req, res, next) => {
     const id = req.params.id;
@@ -107,12 +123,19 @@ router.patch('/favorite/:id', (req, res, next) => {
     console.log(userId);
     console.log(recipeId);
 
-    User.findById(userId)
-        .then(user => {
-            user.favoriteRecipes.push(recipeId);
-            user.save();
-            res.json(user);
-            console.log(user);
+    Recipe.findById(recipeId)
+        .then(recipe => {
+            recipe.favorites.push(userId);
+            recipe.save();
+            User.findById(userId)
+            .then(user=>{
+                user.favoriteRecipes.push(recipeId)
+                user.save();
+                console.log(user);
+
+            })
+            res.json(recipe);
+            console.log(recipe);
         })
         .catch(next);
 });

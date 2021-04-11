@@ -41,9 +41,21 @@ export const getAll = () => {
 }
 
 
-// export const getOne = (userId) => {
-//   const url = 'http://localhost:4000/api/auth';
-//   return fetch(`${url}/${userId}`)
-//       .then(res => res.json())
-//       .catch(error => console.log(error));
-// };
+export const getOne = (userId) => {
+  const url = 'http://localhost:4000/api/auth';
+  return fetch(`${url}/${userId}`)
+      .then(res => res.json())
+      .catch(error => console.log(error));
+};
+
+export const addFavorite =(userId,recipeId)=>{
+  const url = 'http://localhost:4000/api/auth';
+  return fetch(`${url}/favorite/${userId}`, {
+      method: 'PATCH',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({recipeId})
+  })
+      .then(res => res.json());
+}

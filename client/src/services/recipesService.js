@@ -67,13 +67,7 @@ export const update = (recipeId, recipe) => {
     .then(res=>res.json())
 };
 
-export const getAllOwn = (userId)=>{
-    return fetch(`${url}/get-user-recipes/${userId}`)
-    .then(res => res.json())
-    .catch(error => console.log(error));
-}
-
-export const addFavorite =(recipeId, userId)=>{
+export const addToFavorite =(recipeId, userId)=>{
     return fetch(`${url}/favorite/${recipeId}`, {
         method: 'PATCH',
         headers: {
@@ -82,4 +76,16 @@ export const addFavorite =(recipeId, userId)=>{
         body: JSON.stringify({userId})
     })
         .then(res => res.json());
+}
+
+export const getAllFavorite=(userId)=>{
+    return fetch(`${url}/get-user-recipes-favorite/${userId}`)
+    .then(res => res.json())
+    .catch(error => console.log(error));
+}
+
+export const getAllOwn = (userId)=>{
+    return fetch(`${url}/get-user-recipes/${userId}`)
+    .then(res => res.json())
+    .catch(error => console.log(error));
 }
