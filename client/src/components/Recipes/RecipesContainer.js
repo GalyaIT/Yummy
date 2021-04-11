@@ -63,7 +63,8 @@ class RecipesContainer extends React.Component {
                                 category={x.category}
                                 creator={x.creator.username}
                                 imageUrl={x.imageUrl}
-                                likes={x.likes.length} />
+                                likes={x.likes.length}
+                                favorites={x.favorites.length} />
                         )}
                 </div>
             </div>

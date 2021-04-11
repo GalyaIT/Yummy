@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom'
-import heartIcon from '../../assets/icons/like.svg';
+import likeIcon from '../../assets/icons/like.svg';
+import heartIcon from '../../assets/icons/heart.svg';
 import commentIcon from '../../assets/icons/comment.svg';
 import userIcon from '../../assets/icons/user.svg';
 
@@ -11,7 +12,8 @@ const Recipe = ({
     imageUrl,
     category,
     creator,
-    likes
+    likes,
+    favorites
 }) => {
 
     return (
@@ -24,10 +26,13 @@ const Recipe = ({
                 <div className="recipe-card__statistic">
 
                     <div className="icon">
-                        <img src={heartIcon} alt="" />
+                        <img src={likeIcon} alt="" />
                         <p> <span>{likes} likes</span></p>
                     </div>
-
+                    <div className="icon">
+                        <img src={heartIcon} alt="" />
+                        <p> <span>{favorites} favorite</span></p>
+                    </div>
                     <div className="icon">
                         <img src={commentIcon} alt="" />
                         <p><span>3</span> comments </p>
