@@ -4,7 +4,7 @@
     display: grid;
     width: 280px;
     margin: 10px auto;
-    grid-template-rows: 110px 150px;
+    grid-template-rows: 110px 105px;
     border: 2px solid map-get($colors, secondary-300);
     border-radius: 10px;
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
@@ -37,14 +37,14 @@
 
     &__heading {
         display: grid;
-        grid-template-columns: 190px 85px;
+        grid-template-columns: 180px 90px;
         justify-content: space-around;
         &__img {
-            width: 180px;
-            max-height: 110px;
+            width: 175px;
+            max-height: 105px;
             img {
-                width: 180px;
-                max-height: 110px;
+                width: 175px;
+                max-height: 105px;
                 object-fit: cover;
             }
         }

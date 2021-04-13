@@ -19,8 +19,7 @@ const MainContainer = () => {
 
     useEffect(() => {
         recipesService.getAll()
-            .then(res => {
-                console.log(res);
+            .then(res => {               
                 const soups = res.filter(x => x.category === 'Soups')
                 setSoups(soups)
                 const salads = res.filter(x => x.category === 'Salads')

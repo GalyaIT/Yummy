@@ -13,11 +13,8 @@ const Cooks = () => {
 
     useEffect(() => {
         authService.getAll()
-            .then(res => setCooks(res));
-
-
+            .then(res => setCooks(res));         
             return () => console.log('Component will unmount');
-
 
     }, [])
 

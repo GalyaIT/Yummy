@@ -8,8 +8,7 @@ import RecipeIntro from './Recipe-Intro';
 
 
 const CategoryTemplate = ({recipes, name, img}) => {
- console.log(recipes);
-
+    
  let likes=0
  let favorite=0
  for (var i = 0; i < recipes.length; i++) {

@@ -21,7 +21,7 @@ class EditRecipe extends Component {
         let recipeId = this.props.match.params.id;
         recipesService.getOne(recipeId)
             .then(res => {
-                this.setState({ recipe: res })
+                this.setState({ recipe: res, creator:res.creator })
             });
     }
 
