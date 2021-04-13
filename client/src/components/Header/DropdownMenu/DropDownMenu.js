@@ -56,7 +56,7 @@ class DropDownMenu extends Component {
                                 <Link to="/curious"><DropItem>curious</DropItem></Link>
                                 <Link to="/recipes"><DropItem>recipes</DropItem></Link>
                                 <Link to="/cooks">  <DropItem>amateur chefs</DropItem></Link>
-                                <Link to={`profile/${user.id}`}> <DropItem className={className}>profile</DropItem></Link>
+                                <Link to={`/profile/${user.id}`}> <DropItem className={className}>profile</DropItem></Link>
                             </ul> :
                             <ul className="dropdown__items container " onClick={this.close}>
                                 <Link to="/"><DropItem> home</DropItem></Link>                               

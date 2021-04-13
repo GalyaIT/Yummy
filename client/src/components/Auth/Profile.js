@@ -6,7 +6,7 @@ import UserContext from '../../Context'
 import SubmitButton from '../Button/Submit-button'
 import Recipe from '../Recipes/Recipe'
 
-const Profile = ({ history }) => {
+const Profile = ({ history, match }) => {
 
 
     const [recipes, setRecipes] = useState([])
@@ -17,14 +17,15 @@ const Profile = ({ history }) => {
     const favRecipesRef = useRef(null);  
     const context = useContext(UserContext);
     const username = context.user.username
+    const userId=context.user.id;
+   
 
     const logOut = () => {
         context.logOut();
         history.push('/')
     }
 
-    useEffect(() => {
-        let userId = context.user.id;
+    useEffect(() => {       
         recipesService.getAllOwn(userId)
             .then(res => {
                 console.log(res);

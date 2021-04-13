@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './main.scss';
 import UserContext from './Context'
-
+import CustomErrorBoundary from './components/CustomErrorBoundary/CustomErrorBoundary';
 import Routing from './components/Routing/Routing';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -85,9 +85,11 @@ console.log('user', user)
       logOut,
     }}>
       <div className="page-wrapper container">
+      <CustomErrorBoundary>
         <Header />
         <Routing />
         <Footer />
+        </CustomErrorBoundary>
       </div>
     </UserContext.Provider>
   )

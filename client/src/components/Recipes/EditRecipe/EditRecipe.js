@@ -11,7 +11,8 @@ class EditRecipe extends Component {
         super(props)
         this.state = {
             recipe: {},
-            errors: []
+            errors: [],
+            creator:{}
         }
     }
     static contextType = UserContext;
@@ -83,10 +84,16 @@ class EditRecipe extends Component {
     }
 
     render() {
-        const { recipe, errors } = this.state;
+        const { recipe, errors, creator } = this.state;
         const loggedIn = this.context.user && this.context.user.loggedIn
+        let userId = this.context.user.id
+        let isCreator = creator._id === userId
+
         if (!loggedIn) {
             return <Redirect to="/login" />
+        }
+         if(!isCreator){
+            return <p>You are not authorized to perform this operation</p>
         }
         return (
             <section className="wrapper">

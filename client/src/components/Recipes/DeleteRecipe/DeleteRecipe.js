@@ -10,7 +10,8 @@ class DeleteRecipe extends Component{
 constructor(props){
     super(props)
     this.state={
-        recipe:{}
+        recipe:{},
+        creator:{}
     }
 }
 componentDidMount(){
@@ -26,11 +27,15 @@ componentDidMount(){
 };
 
     render(){
-       const {recipe}=this.state
+       const {recipe, creator}=this.state
        const {user} = this.context;
-      
+       let userId = this.context.user.id
+        let isCreator = creator._id === userId
      if(!user.loggedIn){
         return <Redirect to="/login"/>
+        }
+        if(!isCreator){
+            return <p>You are not authorized to perform this operation</p>
         }
         return(
             <div className="recipe-wrapper">
