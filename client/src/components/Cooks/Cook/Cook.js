@@ -14,14 +14,14 @@ const Cook = ({
                 <section className="cook-card__info" >
                     <div className="icon">
                           <img src={userIcon} alt="user" />
-                   <p> @{username}</p>
+                   <p>@{username}</p>
                     </div>
               
                 </section>
                 <section className="recipe-card__recipes">
                     <div className="icon">
                         <img src={recipeIcon} alt="recipe" />
-                        <Link to={`/cooks/${id}`}><span>{recipes.length} recipes</span></Link>
+                        <Link to={`/cooks/${id}`}><span>{recipes} recipes</span></Link>
                     </div>                   
                 </section>
           

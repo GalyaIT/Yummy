@@ -36,7 +36,7 @@ console.log(howManyPages);
                         <Cook key={x._id}
                             id={x._id}
                             username={x.username}
-                            recipes={x.recipes} />
+                            recipes={x.recipes.length} />
                     )}
             </div>
            

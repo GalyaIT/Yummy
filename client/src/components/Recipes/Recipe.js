@@ -47,7 +47,7 @@ const Recipe = ({
             <section>
                 <div className="recipe-card__description centered-container" >
                     <h4>{title}</h4>                   
-                    <p>{description} </p>
+                    <p>{description}</p>
                     <Link to={`/recipe-details/${id}`} className="btn btn--card ">more</Link>
                 </div>
             </section>
