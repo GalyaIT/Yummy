@@ -104,6 +104,7 @@ const Profile = ({ history, match }) => {
                                 creator={x.creator.username}
                                 imageUrl={x.imageUrl}
                                 likes={x.likes.length}
+                                favorites={x.favorites.length}
                             />
                         ) :
                         <p>No recipes</p>
@@ -121,6 +122,7 @@ const Profile = ({ history, match }) => {
                                 creator={x.creator.username}
                                 imageUrl={x.imageUrl}
                                 likes={x.likes.length}
+                                favorites={x.favorites.length}
                             />
                         ) :
                         <p>No recipes</p>

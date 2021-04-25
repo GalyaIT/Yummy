@@ -8,7 +8,7 @@ const Search = () => {
         <div>
             <div className="search-box">
                 <input className="search-box__search-txt " type="text" name="" placeholder="Type to search" />
-                <a className="search-box__search-button " href="!#"  >
+                <a className="search-box__search-button "   >
                     <img className="search-box__search-image" src={searchImg}
                         alt="Search" /></a>
             </div>

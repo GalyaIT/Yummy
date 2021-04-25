@@ -1,5 +1,5 @@
 const url = 'http://localhost:4000/api/recipes';
-
+const token = localStorage.getItem('x-auth-token');
 
 
 
@@ -23,6 +23,7 @@ export const create = (title, imageUrl, description, category, user) => {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
+            'Authorization':token
         },
         body: JSON.stringify(recipe)
     })
@@ -40,6 +41,7 @@ export const like = (recipeId, userId) => {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization':token
         },
         body: JSON.stringify({userId})
     })
@@ -51,6 +53,7 @@ export const deleteRecipe = (recipeId) => {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization':token
         },       
     })
         .then(res => res.json());
@@ -61,6 +64,7 @@ export const update = (recipeId, recipe) => {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization':token
         },
         body: JSON.stringify(recipe)
     })
@@ -72,6 +76,7 @@ export const addToFavorite =(recipeId, userId)=>{
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization':token
         },
         body: JSON.stringify({userId})
     })

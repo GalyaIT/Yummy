@@ -41,7 +41,7 @@ const CategoryTemplate = ({recipes, name, img}) => {
 
                     <div className="icon">
                         <img src={commentIcon} alt="" />
-                        <p><span>300</span> comments</p>
+                        <p><span>30</span> comments</p>
                     </div>
                 </section>
 

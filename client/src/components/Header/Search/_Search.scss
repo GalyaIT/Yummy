@@ -43,6 +43,7 @@
     }
     &__search-button {
         display: flex;
-        flex-direction: column;
+        flex-direction: column; 
+        cursor: pointer;     
     }
 }
