@@ -69,7 +69,7 @@ class CreateRecipe extends Component {
         if (isValid) {
             RecipesService.create(title, imageUrl, description, category, user)
                 .then(() => {
-                    this.props.history.push('/recipes')
+                    this.props.history.push(`/profile/${user}`)
                 })
         }
     }

@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const Recipe = require('../models/Recipe');
 const User = require('../models/User');
+const Comment = require('../models/Comment')
 const { isAuth } = require('../middlewares/auth');
+const { populate } = require('../models/Recipe');
 
 // router.get('/all', (req, res, next) => {
 //     Recipe.find()
@@ -13,7 +15,7 @@ const { isAuth } = require('../middlewares/auth');
 // });
 
 
-router.get('/', (req, res, next) => {
+router.get('/',  (req, res, next) => {
     const category = req.query.category ? req.query.category : ' ';
     console.log(category);
     if (category !== ' ') {
@@ -49,10 +51,10 @@ router.post('/', async (req, res, next) => {
                     // console.log(createdRecipe);
                     return res.status(201).json(createdRecipe);
                 })
-                .catch(e => {
+                .catch(e=>{
                     console.log(e);
                 })
-
+                
         });
 
 });
@@ -61,7 +63,8 @@ router.post('/', async (req, res, next) => {
 router.get('/:id', (req, res, next) => {
     const id = req.params.id;
     Recipe.findById(id)
-        .populate("creator", "username")
+    .populate("creator", "username")
+    .populate('comments')
         .then(recipe => {
             res.json(recipe);
             // console.log(recipe);
@@ -84,24 +87,24 @@ router.get('/get-user-recipes/:id', (req, res, next) => {
         .catch(next);
 });
 
-router.get('/get-user-recipes-favorite/:id', (req, res, next) => {
+router.get('/get-user-recipes-favorite/:id', (req, res, next)=>{
     const userId = req.params.id;
 
-    Recipe.find({})
-        .populate("creator", "username")
-        .where('favorites').in(userId)
-        .then(recipes => {
-
-            res.send(recipes);
+   Recipe.find({})   
+    .populate("creator", "username")
+    .where('favorites').in(userId)
+    .then(recipes=>{
+       
+        res.send(recipes);
             console.log(recipes);
-
-        })
-        .catch(next);
+            
+    })
+    .catch(next);   
 })
 
 router.patch('/like/:id', (req, res, next) => {
     const id = req.params.id;
-
+    
     const userId = req.body.userId;
     console.log(userId);
     console.log(id);
@@ -118,7 +121,7 @@ router.patch('/like/:id', (req, res, next) => {
 
 router.patch('/favorite/:id', (req, res, next) => {
     const recipeId = req.params.id;
-
+    
     const userId = req.body.userId;
     console.log(userId);
     console.log(recipeId);
@@ -128,12 +131,12 @@ router.patch('/favorite/:id', (req, res, next) => {
             recipe.favorites.push(userId);
             recipe.save();
             User.findById(userId)
-                .then(user => {
-                    user.favoriteRecipes.push(recipeId)
-                    user.save();
-                    console.log(user);
+            .then(user=>{
+                user.favoriteRecipes.push(recipeId)
+                user.save();
+                console.log(user);
 
-                })
+            })
             res.json(recipe);
             console.log(recipe);
         })
@@ -152,11 +155,10 @@ router.delete('/:id', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
     let updates = req.body;
     Recipe.findOneAndUpdate({ _id: req.params.id }, updates, { new: true })
-        .then(updatedRecipe => res.json(updatedRecipe))
-        .catch(err => res.status(400).json("Error: " + err))
+      .then(updatedRecipe => res.json(updatedRecipe))
+      .catch(err => res.status(400).json("Error: " + err))
 
 })
-
 //create comment
 router.post('/:id/comments', async (req, res, next) => {
     const id = req.params.id;
@@ -167,13 +169,15 @@ router.post('/:id/comments', async (req, res, next) => {
             comment.save()
                 .then(createdComment => {
                     recipe.comments.push(createdComment._id);
-                    recipe.save();                 
+                    recipe.save();
+                    // console.log(recipe);
+                    // console.log(createdComment);
                     return res.status(201).json(recipe);
                 })
-                .catch(e => {
+                .catch(e=>{
                     console.log(e);
                 })
-
+                
         });
 
 });
@@ -182,9 +186,13 @@ router.post('/:id/comments', async (req, res, next) => {
 router.get('/:id/comments', (req, res, next) => {
     const id = req.params.id;
     Recipe.findById(id)
-        .populate('comments')
-        .then(recipe => {
-            res.json(recipe.comments);            
+    .populate('comments')   
+        .then(recipe => {            
+        
+                  res.json(recipe.comments);       
+         
+          
+            // console.log(recipe);
         })
         .catch(next);
 });

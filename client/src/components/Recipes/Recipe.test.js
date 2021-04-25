@@ -27,6 +27,5 @@ describe('Recipe component', () => {
         render(<BrowserRouter><Recipe creator="Pesho"/></BrowserRouter>)
         expect(document.querySelector('.recipe-card__statistic > div:nth-child(4) > p > span').textContent).toBe('Pesho')
     })
-
     
 })

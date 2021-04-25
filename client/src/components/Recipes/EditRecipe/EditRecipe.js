@@ -43,8 +43,7 @@ class EditRecipe extends Component {
         if (updatedRecipe.imageUrl.trim().length === 0) {
             errors.image = 'The field imageUrl can\'t be empty'
             isValid = false;
-        } 
-        else if (!updatedRecipe.imageUrl.startsWith('http')) {
+        } else if (!updatedRecipe.imageUrl.startsWith('http')) {
             errors.image = 'Invalid Url'
             isValid = false;
         }

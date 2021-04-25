@@ -4,7 +4,6 @@ const Comment = ({ content, creator, createdAt }) => {
  
     return (
 
-
         <div className="comment-wrapper  ">          
             <section className="comment_content ">
                  <p >{content}</p>
@@ -12,10 +11,7 @@ const Comment = ({ content, creator, createdAt }) => {
             <section className="comment_info ">
                    <p>posted by @{creator}</p>
            <p>at <Moment format="DD MMM YYYY HH:mm:ss">{createdAt}</Moment></p>
-            </section>
-        
-          
-
+            </section>      
         </div>
     )
 }

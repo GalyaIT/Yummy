@@ -11,9 +11,11 @@ const CategoryTemplate = ({recipes, name, img}) => {
     
  let likes=0
  let favorite=0
+ let comments=0
  for (var i = 0; i < recipes.length; i++) {
    likes += recipes[i].likes.length
    favorite+=recipes[i].favorites.length
+   comments +=recipes[i].comments.length
  }
 
     return (
@@ -41,7 +43,7 @@ const CategoryTemplate = ({recipes, name, img}) => {
 
                     <div className="icon">
                         <img src={commentIcon} alt="" />
-                        <p><span>30</span> comments</p>
+                        <p><span>{comments}</span> comments</p>
                     </div>
                 </section>
 

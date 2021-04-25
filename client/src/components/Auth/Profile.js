@@ -105,6 +105,7 @@ const Profile = ({ history, match }) => {
                                 imageUrl={x.imageUrl}
                                 likes={x.likes.length}
                                 favorites={x.favorites.length}
+                                comments={x.comments.length}
                             />
                         ) :
                         <p>No recipes</p>
@@ -123,6 +124,7 @@ const Profile = ({ history, match }) => {
                                 imageUrl={x.imageUrl}
                                 likes={x.likes.length}
                                 favorites={x.favorites.length}
+                                comments={x.comments.length}
                             />
                         ) :
                         <p>No recipes</p>

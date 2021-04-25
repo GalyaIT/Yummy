@@ -2,7 +2,7 @@
 @import "../../../styles/settings/settings-colors";
 @import "../../../styles/settings/settings-breakpoints";
 .recipe-wrapper {
-    background-color: map-get($colors, primary);
+    background-color: map-get($colors, primary);  
     .recipe-card-details {
         display: grid;
         width: 92%;
@@ -13,7 +13,8 @@
             flex-direction: column;
             justify-items: end;
             padding-top: 10px;
-            margin-top:30px;
+            margin-top: 30px;
+
             h4 {
                 margin: 0;
                 font-size: 16px;
@@ -29,34 +30,34 @@
             justify-content: center;
 
             &__img {
-                width: 100%;
+                width: 90%;
                 @include for-tablet-and-laptop {
                     width: 70%;
                 }
                 @include desktop {
-                    width: 50%;
-                }               
-            }          
+                    width: 35%;
+                }
+            }
         }
         &__statistic {
             display: flex;
             flex-direction: row;
             justify-content: start;
-            margin-top: 10px; 
-        .icon {
+            margin-top: 10px;
+            .icon {
                 display: flex;
                 align-items: center;
                 padding-left: 10px;
                 p {
                     margin: 0 0 0 10px;
-                    font-size: 12px;                  
+                    font-size: 12px;
                 }
                 img {
                     width: 10px;
                     height: 10px;
                 }
             }
-        }      
+        }
         &__buttons {
             display: flex;
             width: 130px;
@@ -67,9 +68,9 @@
             }
         }
         .recipe-like {
-            padding-top: 30px;
+            padding-top: 20px;
             p {
-                color: map-get($colors, blue-50);              
+                color: map-get($colors, blue-50);
                 width: max-content;
                 margin: 0;
             }
@@ -78,6 +79,22 @@
                 height: 10px;
                 display: inline;
             }
+        }
+    }
+    .form-comment-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        textarea {
+            background-color: map-get($colors, primary-400);
+            outline: none;
+            resize: none;
+            border: 1px solid map-get($colors, secondary-200);
+            border-radius: 5px;
+            color: map-get($colors, secondary);
+            min-width: 270px;
+            overflow: hidden;
+            width: 100%;
         }
     }
 }

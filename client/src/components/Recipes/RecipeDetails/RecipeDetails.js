@@ -8,7 +8,8 @@ import heartIcon from '../../../assets/icons/heart.svg';
 import commentIcon from '../../../assets/icons/comment.svg';
 import userIcon from '../../../assets/icons/user.svg';
 import UserContext from '../../../Context'
-
+import SubmitButton from '../../Button/Submit-button'
+import Comments from '../../Comment/Comments'
 
 class RecipeDetails extends Component {
     constructor(props) {
@@ -17,19 +18,29 @@ class RecipeDetails extends Component {
         this.state = {
             recipe: {},
             creator: {},
-            likes: [], 
-            user:{}, 
-            favorites:[]           
+            likes: [],
+            user: {},
+            favorites: [],
+            comments: [],
+            content: '',
+            errorMessage:''
+
         }
     }
     static contextType = UserContext;
 
     //Get recipe
-    componentDidMount() {         
+    componentDidMount() {
         recipesService.getOne(this.props.match.params.id)
             .then(res => {
-                this.setState({ recipe: res, creator: res.creator, likes: res.likes, favorites:res.favorites})
-            });               
+                this.setState({
+                    recipe: res,
+                    creator: res.creator,
+                    likes: res.likes,
+                    favorites: res.favorites,
+                    comments: res.comments,
+                })
+            });
     }
 
     //Update likes
@@ -41,31 +52,53 @@ class RecipeDetails extends Component {
             });
     };
 
-    onRecipeButtonAddFavoriteClickHandler=()=>{
+    onRecipeButtonAddFavoriteClickHandler = () => {
         let userId = this.context.user.id
         let recipeId = this.props.match.params.id
-      
-        recipesService.addToFavorite(recipeId,userId)
-        .then(res=>{
-            console.log(res);           
-           this.setState(state=>({...state, recipes: res, favorites:res.favorites }))
-        })    
+
+        recipesService.addToFavorite(recipeId, userId)
+            .then(res => {
+                console.log(res);
+                this.setState(state => ({ ...state, recipes: res, favorites: res.favorites }))
+            })
     }
 
+
+    createCommentSubmitHandler = (e) => {
+        e.preventDefault();
+        let username = this.context.user.username
+        let { content } = e.target;
+        let recipeId = this.props.match.params.id
+        console.log(content.value);
+        if (content.value.length <5) {
+           return this.setState({errorMessage:'The content must be at length 5 or more'})
+        } else {
+            recipesService.createComment(content.value, recipeId, username)
+                .then((res) => {
+                    console.log(res);
+                    this.setState(state => ({ ...state, resipe: res, comments: res.comments }))
+                    console.log(res);
+                    console.log(res.comments);
+
+                })
+            content.value = ''
+        }
+    };
+
+
+
     render() {
-         const {
+        const {
             user
         } = this.context;
         let userId = this.context.user.id
-        const { recipe, creator, likes, favorites } = this.state   
-        console.log();  
+        const { recipe, creator, likes, favorites, comments, errorMessage } = this.state       
+        
         let isCreator = creator._id === userId
         let isLiked = likes.some(x => x === userId)
-        console.log(favorites);
-        let isFavorite =favorites.some(x=>x===userId)
-        console.log(isFavorite);      
-       
-        console.log(isCreator);
+      
+        let isFavorite = favorites.some(x => x === userId)        
+
         if (!user.loggedIn) {
             return <Redirect to="/login" />
         }
@@ -87,7 +120,7 @@ class RecipeDetails extends Component {
                             </div>
                             <div className="icon">
                                 <img src={commentIcon} alt="" />
-                                <p><span>3</span> comments </p>
+                                <p><span>{comments.length}</span> comments </p>
                             </div>
                             <div className="icon">
                                 <img src={userIcon} alt="" />
@@ -106,30 +139,39 @@ class RecipeDetails extends Component {
                                 </div>
                                 :
                                 <>
-                                <div className="recipe-like">
-                                    {isLiked ?
-                                        <>
-                                            <p><img src={likeIcon} alt="" /> You and {likes.length - 1} other liked</p>
-                                           
-                                        </> :
-                                        <>
-                                            <button className="btn btn--like" onClick={this.onRecipeButtonClickHandler}>like </button>
-                                        </>
-                                    }
-                                </div>
-                                 <div className="recipe-like">                             
-                                 {isFavorite ?
-                                     <>
-                                        <p><img src={heartIcon} alt="" /> You and {favorites.length - 1} other added this recipe </p>
-                                       
-                                     </> :
-                                     <>                                        
-                                         <button className="btn btn--like" onClick={this.onRecipeButtonAddFavoriteClickHandler}>Add to favorite </button>
-                                     </>
-                                 }
-                             </div>
-                                </>                                
+                                    <div className="recipe-like">
+                                        {isLiked ?
+                                            <>
+                                                <p><img src={likeIcon} alt="" /> You and {likes.length - 1} other liked</p>
+
+                                            </> :
+                                            <>
+                                                <button className="btn btn--like" onClick={this.onRecipeButtonClickHandler}>like </button>
+                                            </>
+                                        }
+                                    </div>
+                                    <div className="recipe-like">
+                                        {isFavorite ?
+                                            <>
+                                                <p><img src={heartIcon} alt="" /> You and {favorites.length - 1} other added this recipe </p>
+
+                                            </> :
+                                            <>
+                                                <button className="btn btn--like" onClick={this.onRecipeButtonAddFavoriteClickHandler}>Add to favorite </button>
+                                            </>
+                                        }
+                                    </div>
+                                </>
                             }
+                        </div>
+                        {errorMessage && <p className="error">{errorMessage}</p>}
+                        <form className="form-comment-wrapper" onSubmit={this.createCommentSubmitHandler}>
+                            <textarea rows="5"  type="text" name="content" id="content"
+                                placeholder="Type your text here...." ></textarea>                            
+                            <SubmitButton title="Add Comment" />                      
+                          </form>
+                        <div>
+                            <Comments recipeId={this.props.match.params.id} />                         
                         </div>
                     </section>
                 </article>

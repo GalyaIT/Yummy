@@ -95,7 +95,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
   /* 1 */
   font-size: 1em;
   /* 2 */
@@ -342,7 +342,7 @@ img {
 }
 
 .centered-container {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -1045,8 +1045,8 @@ img {
   display: grid;
   width: 280px;
   margin: 10px auto;
-  -ms-grid-rows: 110px 150px;
-      grid-template-rows: 110px 150px;
+  -ms-grid-rows: 110px 105px;
+      grid-template-rows: 110px 105px;
   border: 2px solid #8aa327fa;
   border-radius: 10px;
   -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
@@ -1093,20 +1093,20 @@ img {
 .recipe-card__heading {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 190px 85px;
-      grid-template-columns: 190px 85px;
+  -ms-grid-columns: 180px 90px;
+      grid-template-columns: 180px 90px;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
 
 .recipe-card__heading__img {
-  width: 180px;
-  max-height: 110px;
+  width: 175px;
+  max-height: 105px;
 }
 
 .recipe-card__heading__img img {
-  width: 180px;
-  max-height: 110px;
+  width: 175px;
+  max-height: 105px;
   -o-object-fit: cover;
      object-fit: cover;
 }

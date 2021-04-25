@@ -13,7 +13,8 @@ const Recipe = ({
     category,
     creator,
     likes,
-    favorites
+    favorites,
+    comments
 }) => {
 
     return (
@@ -35,7 +36,7 @@ const Recipe = ({
                     </div>
                     <div className="icon">
                         <img src={commentIcon} alt="" />
-                        <p><span>3</span> comments </p>
+                        <p><span>{comments}</span> comments </p>
                     </div>
                     <div className="icon">
                         <img src={userIcon} alt="" />
