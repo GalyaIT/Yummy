@@ -94,3 +94,26 @@ export const getAllOwn = (userId)=>{
     .then(res => res.json())
     .catch(error => console.log(error));
 }
+
+export const createComment = (content, recipeId, userId) => {
+    let comment = {
+        content,
+        creator:userId,
+        recipe:recipeId
+    }
+    return fetch(`${url}/${recipeId}/comments`, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(comment)
+    })
+    .then(res => res.json());
+}
+
+export const getAllComments = (recipeId) => {   
+
+    return fetch(`${url}/${recipeId}/comments`)
+        .then(res => res.json())
+        .catch(error => console.log(error));
+};

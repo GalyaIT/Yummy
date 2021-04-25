@@ -13,7 +13,7 @@ const { isAuth } = require('../middlewares/auth');
 // });
 
 
-router.get('/',  (req, res, next) => {
+router.get('/', (req, res, next) => {
     const category = req.query.category ? req.query.category : ' ';
     console.log(category);
     if (category !== ' ') {
@@ -49,10 +49,10 @@ router.post('/', async (req, res, next) => {
                     // console.log(createdRecipe);
                     return res.status(201).json(createdRecipe);
                 })
-                .catch(e=>{
+                .catch(e => {
                     console.log(e);
                 })
-                
+
         });
 
 });
@@ -61,7 +61,7 @@ router.post('/', async (req, res, next) => {
 router.get('/:id', (req, res, next) => {
     const id = req.params.id;
     Recipe.findById(id)
-    .populate("creator", "username")
+        .populate("creator", "username")
         .then(recipe => {
             res.json(recipe);
             // console.log(recipe);
@@ -84,24 +84,24 @@ router.get('/get-user-recipes/:id', (req, res, next) => {
         .catch(next);
 });
 
-router.get('/get-user-recipes-favorite/:id', (req, res, next)=>{
+router.get('/get-user-recipes-favorite/:id', (req, res, next) => {
     const userId = req.params.id;
 
-   Recipe.find({})   
-    .populate("creator", "username")
-    .where('favorites').in(userId)
-    .then(recipes=>{
-       
-        res.send(recipes);
+    Recipe.find({})
+        .populate("creator", "username")
+        .where('favorites').in(userId)
+        .then(recipes => {
+
+            res.send(recipes);
             console.log(recipes);
-            
-    })
-    .catch(next);   
+
+        })
+        .catch(next);
 })
 
 router.patch('/like/:id', (req, res, next) => {
     const id = req.params.id;
-    
+
     const userId = req.body.userId;
     console.log(userId);
     console.log(id);
@@ -118,7 +118,7 @@ router.patch('/like/:id', (req, res, next) => {
 
 router.patch('/favorite/:id', (req, res, next) => {
     const recipeId = req.params.id;
-    
+
     const userId = req.body.userId;
     console.log(userId);
     console.log(recipeId);
@@ -128,12 +128,12 @@ router.patch('/favorite/:id', (req, res, next) => {
             recipe.favorites.push(userId);
             recipe.save();
             User.findById(userId)
-            .then(user=>{
-                user.favoriteRecipes.push(recipeId)
-                user.save();
-                console.log(user);
+                .then(user => {
+                    user.favoriteRecipes.push(recipeId)
+                    user.save();
+                    console.log(user);
 
-            })
+                })
             res.json(recipe);
             console.log(recipe);
         })
@@ -152,8 +152,42 @@ router.delete('/:id', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
     let updates = req.body;
     Recipe.findOneAndUpdate({ _id: req.params.id }, updates, { new: true })
-      .then(updatedRecipe => res.json(updatedRecipe))
-      .catch(err => res.status(400).json("Error: " + err))
+        .then(updatedRecipe => res.json(updatedRecipe))
+        .catch(err => res.status(400).json("Error: " + err))
 
 })
+
+//create comment
+router.post('/:id/comments', async (req, res, next) => {
+    const id = req.params.id;
+    let comment = new Comment(req.body);
+    Recipe.findById(id)
+        .then(recipe => {
+            console.log(recipe);
+            comment.save()
+                .then(createdComment => {
+                    recipe.comments.push(createdComment._id);
+                    recipe.save();                 
+                    return res.status(201).json(recipe);
+                })
+                .catch(e => {
+                    console.log(e);
+                })
+
+        });
+
+});
+
+//getAllComments
+router.get('/:id/comments', (req, res, next) => {
+    const id = req.params.id;
+    Recipe.findById(id)
+        .populate('comments')
+        .then(recipe => {
+            res.json(recipe.comments);            
+        })
+        .catch(next);
+});
+
+
 module.exports = router;
