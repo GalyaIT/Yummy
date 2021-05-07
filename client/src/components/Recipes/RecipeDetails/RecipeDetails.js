@@ -23,7 +23,7 @@ class RecipeDetails extends Component {
             favorites: [],
             comments: [],
             content: '',
-            errorMessage:''
+            errorMessage: ''
 
         }
     }
@@ -70,8 +70,8 @@ class RecipeDetails extends Component {
         let { content } = e.target;
         let recipeId = this.props.match.params.id
         console.log(content.value);
-        if (content.value.length <5) {
-           return this.setState({errorMessage:'The content must be at length 5 or more'})
+        if (content.value.length < 5) {
+            return this.setState({ errorMessage: 'The content must be at length 5 or more' })
         } else {
             recipesService.createComment(content.value, recipeId, username)
                 .then((res) => {
@@ -79,7 +79,6 @@ class RecipeDetails extends Component {
                     this.setState(state => ({ ...state, resipe: res, comments: res.comments }))
                     console.log(res);
                     console.log(res.comments);
-
                 })
             content.value = ''
         }
@@ -92,12 +91,12 @@ class RecipeDetails extends Component {
             user
         } = this.context;
         let userId = this.context.user.id
-        const { recipe, creator, likes, favorites, comments, errorMessage } = this.state       
-        
+        const { recipe, creator, likes, favorites, comments, errorMessage } = this.state
+
         let isCreator = creator._id === userId
         let isLiked = likes.some(x => x === userId)
-      
-        let isFavorite = favorites.some(x => x === userId)        
+
+        let isFavorite = favorites.some(x => x === userId)
 
         if (!user.loggedIn) {
             return <Redirect to="/login" />
@@ -166,12 +165,12 @@ class RecipeDetails extends Component {
                         </div>
                         {errorMessage && <p className="error">{errorMessage}</p>}
                         <form className="form-comment-wrapper" onSubmit={this.createCommentSubmitHandler}>
-                            <textarea rows="5"  type="text" name="content" id="content"
-                                placeholder="Type your text here...." ></textarea>                            
-                            <SubmitButton title="Add Comment" />                      
-                          </form>
+                            <textarea rows="5" type="text" name="content" id="content"
+                                placeholder="Type your text here...." ></textarea>
+                            <SubmitButton title="Add Comment" />
+                        </form>
                         <div>
-                            <Comments recipeId={this.props.match.params.id} />                         
+                            <Comments recipeId={this.props.match.params.id} />
                         </div>
                     </section>
                 </article>

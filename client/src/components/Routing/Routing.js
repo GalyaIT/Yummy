@@ -32,8 +32,7 @@ const Routing = () => {
           <Route path="/recipe-details/:id" component={DetailsPage}/> 
           <Route path="/edit-recipe/:id" component={EditPage}/> 
           <Route path="/delete-recipe/:id" component={DeletePage}/> 
-          <Route path="/cooks" exact>{loggedIn ? (<CooksPage/>):(<Redirect to="/login"/>)} </Route>  
-          {/* <Route path="/cooks/:id">{loggedIn ? (<CookRecipesPage/>):(<Redirect to="/login"/>)} </Route>          */}
+          <Route path="/cooks" exact>{loggedIn ? (<CooksPage/>):(<Redirect to="/login"/>)} </Route>                  
           <Route path="/cooks/:id" component={CookRecipesPage} />
           <Route path="/profile/:id" component={ProfilePage} />
           {/* <Route path="/useful" component={UsefulPage} />

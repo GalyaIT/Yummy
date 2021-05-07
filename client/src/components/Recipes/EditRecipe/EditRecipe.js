@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { Redirect, Link } from 'react-router-dom'
 import UserContext from '../../../Context'
-import Input from '../../Input/Input'
 import Heading from '../../Shared/Heading/Heading'
 import SubmitButton from '../../Button/Submit-button'
 import * as recipesService from '../../../services/recipesService'

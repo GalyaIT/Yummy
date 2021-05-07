@@ -1,6 +1,7 @@
 import './_Search.scss';
 import searchImg from '../../../assets/icons/navigation-search.svg';
 
+//TODO
 const Search = () => {
     return (
         <div>

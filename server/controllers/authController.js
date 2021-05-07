@@ -102,24 +102,8 @@ router.get('/:id', (req, res, next) => {
             res.send(user);
         })
         .catch(next)
-}),
+})
 
-// router.patch('/favorite/:id', (req, res, next) => {
-//     const id = req.params.id;
-    
-//     const recipeId = req.body.recipeId;
-//     console.log(id);
-//     console.log(recipeId);
-
-//     User.findById(id)
-//         .then(user => {
-//             user.favoriteRecipes.push(recipeId);
-//             user.save();
-//             res.send(user);
-//             console.log(user);
-//         })
-//         .catch(next);
-// });
 
 
 module.exports = router;
