@@ -5,14 +5,6 @@ const Comment = require('../models/Comment')
 const { isAuth } = require('../middlewares/auth');
 const { populate } = require('../models/Recipe');
 
-// router.get('/all', (req, res, next) => {
-//     Recipe.find()
-//         .then(recipes => {
-//             res.json(recipes);
-//             console.log(recipes);
-//         })
-//         .catch(next);
-// });
 
 
 router.get('/',  (req, res, next) => {
@@ -183,19 +175,19 @@ router.post('/:id/comments', async (req, res, next) => {
 });
 
 //getAllComments
-router.get('/:id/comments', (req, res, next) => {
-    const id = req.params.id;
-    Recipe.findById(id)
-    .populate('comments')   
-        .then(recipe => {            
+// router.get('/:id/comments', (req, res, next) => {
+//     const id = req.params.id;
+//     Recipe.findById(id)
+//     .populate('comments')   
+//         .then(recipe => {            
         
-                  res.json(recipe.comments);       
+//                   res.json(recipe.comments);       
          
           
-            // console.log(recipe);
-        })
-        .catch(next);
-});
+//             // console.log(recipe);
+//         })
+//         .catch(next);
+// });
 
 
 module.exports = router;

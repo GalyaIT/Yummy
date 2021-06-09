@@ -106,12 +106,11 @@ export const createComment = (content, recipeId, userId) => {
     .then(res => res.json());
 }
 
-export const getAllComments = (recipeId) => {
+// export const getAllComments = (recipeId) => {
    
-
-    return fetch(`${url}/${recipeId}/comments`)
-        .then(res => res.json())
-        .catch(error => console.log(error));
-};
+//     return fetch(`${url}/${recipeId}/comments`)
+//         .then(res => res.json())
+//         .catch(error => console.log(error));
+// };
 
 

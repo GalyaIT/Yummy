@@ -8,29 +8,29 @@ class Comments extends Component {
 
         this.state = {
             comments: [],
-            creator:''
+            creator: ''
         }
         console.log(props);
     }
-    
-    componentDidMount() {      
+
+    componentDidMount() {
         let recipeId = this.props.recipeId
-        recipesService.getAllComments(recipeId)
+
+        recipesService.getOne(recipeId)
             .then(res => {
                 console.log(res);
-                this.setState({ comments: res })
+                this.setState({ comments: res.comments })
             })
     }
-    componentDidUpdate(){
-        let recipeId=this.props.recipeId    
+    componentDidUpdate() {
+        let recipeId = this.props.recipeId
 
-            recipesService.getAllComments(recipeId)
-            .then(res=>{
-                console.log(res);
-                if(this.state.comments.length !== res.length){
-                     this.setState({comments:res})
-                }    
-            })     
+        recipesService.getOne(recipeId)
+            .then(res => {
+                if (this.state.comments.length !== res.comments.length) {
+                    this.setState({ comments: res.comments })
+                }
+            })
     }
 
 
@@ -41,7 +41,7 @@ class Comments extends Component {
             <div>
                 {comments.length === 0 ?
                     <span className="recipes-wrapper__message"> No comments yet...</span> :
-                    comments.sort((a, b)=>new Date(b.createdAt).getTime()-new Date(a.createdAt).getTime()).map(x =>
+                    comments.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).map(x =>
                         <Comment key={x._id}
                             id={x._id}
                             createdAt={x.createdAt}
