@@ -10,6 +10,7 @@ import userIcon from '../../../assets/icons/user.svg';
 import UserContext from '../../../Context'
 import SubmitButton from '../../Button/Submit-button'
 import Comments from '../../Comment/Comments'
+import Loader from '../../Loader/Loader'
 
 class RecipeDetails extends Component {
     constructor(props) {
@@ -23,7 +24,8 @@ class RecipeDetails extends Component {
             favorites: [],
             comments: [],
             content: '',
-            errorMessage: ''
+            errorMessage: '',
+            loading:false,            
 
         }
     }
@@ -39,6 +41,7 @@ class RecipeDetails extends Component {
                     likes: res.likes,
                     favorites: res.favorites,
                     comments: res.comments,
+                    loading:true
                 })
             });
     }
@@ -91,7 +94,7 @@ class RecipeDetails extends Component {
             user
         } = this.context;
         let userId = this.context.user.id
-        const { recipe, creator, likes, favorites, comments, errorMessage } = this.state
+        const { recipe, creator, likes, favorites, comments, errorMessage, loading } = this.state
 
         let isCreator = creator._id === userId
         let isLiked = likes.some(x => x === userId)
@@ -101,6 +104,11 @@ class RecipeDetails extends Component {
         if (!user.loggedIn) {
             return <Redirect to="/login" />
         }
+        if (!loading) {
+            return (
+              <Loader />
+            )   
+        }      
         return (
             <div className="recipe-wrapper">
                 <article className="recipe-card-details ">

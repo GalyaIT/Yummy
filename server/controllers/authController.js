@@ -65,7 +65,8 @@ router.get('/verify', (req, res, next) => {
                 // return next();
             // }
         } catch (err) {
-            return res.status(403).send();
+            return next({ status: 403, message: 'Forbidden', type: 'ERROR' })
+            // return res.status(403).send();
         }
     } else {
         return res.status(401).send();

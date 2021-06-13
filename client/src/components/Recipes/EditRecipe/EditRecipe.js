@@ -3,6 +3,7 @@ import { Redirect, Link } from 'react-router-dom'
 import UserContext from '../../../Context'
 import Heading from '../../Shared/Heading/Heading'
 import SubmitButton from '../../Button/Submit-button'
+import Loader from '../../Loader/Loader'
 import * as recipesService from '../../../services/recipesService'
 
 class EditRecipe extends Component {
@@ -11,7 +12,8 @@ class EditRecipe extends Component {
         this.state = {
             recipe: {},
             errors: [],
-            creator:{}
+            creator: {},
+            loading: false,
         }
     }
     static contextType = UserContext;
@@ -20,7 +22,7 @@ class EditRecipe extends Component {
         let recipeId = this.props.match.params.id;
         recipesService.getOne(recipeId)
             .then(res => {
-                this.setState({ recipe: res, creator:res.creator })
+                this.setState({ recipe: res, creator: res.creator, loading: true })
             });
     }
 
@@ -83,7 +85,7 @@ class EditRecipe extends Component {
     }
 
     render() {
-        const { recipe, errors, creator } = this.state;
+        const { recipe, errors, creator, loading } = this.state;
         const loggedIn = this.context.user && this.context.user.loggedIn
         let userId = this.context.user.id
         let isCreator = creator._id === userId
@@ -91,48 +93,55 @@ class EditRecipe extends Component {
         if (!loggedIn) {
             return <Redirect to="/login" />
         }
-         if(!isCreator){
-            return <p>You are not authorized to perform this operation</p>
+        if (!loading) {
+            return (
+                <Loader />
+            )
         }
-        return (
-            <section className="wrapper">
-                <Heading title={'Edit recipe :)'} />
-                {Object.keys(errors).map((key) => {
-                    return <p className="errors" key={key}> - {errors[key]}</p>
-                })}
-                <form className="form-wrapper" onSubmit={this.updateRecipeSubmitHandler}>
-                    <div className="input">
-                        <label htmlFor="title">Title</label>
-                        <input type='text' id='title' placeholder="Type title to your recipe" defaultValue={recipe.title} onChange={e => this.handleChange(e, 'title')} />
-                    </div>
-                    <div className="input">
-                        <label htmlFor="imageUrl">ImageUrl</label>
-                        <input type='text' id='imageUrl' placeholder="Type imageUrl" defaultValue={recipe.imageUrl} onChange={e => this.handleChange(e, 'imageUrl')} />
-                    </div>
-                    <div className="recipe-description" >
-                        <textarea rows="4" cols="45" type="text" name="description" id="description"
-                            placeholder="Description" defaultValue={recipe.description} onChange={e => this.handleChange(e, 'description')}></textarea>
-                    </div>
-                    <div className="recipe-category">
-                        <label htmlFor="Category">Category:</label>
-                        <span>
-                            <select name="category" type="text" onChange={e => this.handleChange(e, 'category')}>
-                                <option defaultValue="" >{recipe.category}</option>
-                                <option value="Soups">Soups</option>
-                                <option value="Salads">Salads</option>
-                                <option value="Main-dishes">Main dishes</option>
-                                <option value="Desserts">Desserts</option>
-                                <option value="Bread">Bread</option>
-                            </select>
-                        </span>
-                    </div>
-                    <div className="flex-buttons">
-                        <SubmitButton title="Edit" />
-                        <Link to={`/recipe-details/${recipe._id}/edit`} className="btn btn--submit">back</Link>
-                    </div>
-                </form>
-            </section>
-        )
+        if (!isCreator) {
+            return <p>You are not authorized to perform this operation</p>
+        } else {
+            return (
+                <section className="wrapper">
+                    <Heading title={'Edit recipe :)'} />
+                    {Object.keys(errors).map((key) => {
+                        return <p className="errors" key={key}> - {errors[key]}</p>
+                    })}
+                    <form className="form-wrapper" onSubmit={this.updateRecipeSubmitHandler}>
+                        <div className="input">
+                            <label htmlFor="title">Title</label>
+                            <input type='text' id='title' placeholder="Type title to your recipe" defaultValue={recipe.title} onChange={e => this.handleChange(e, 'title')} />
+                        </div>
+                        <div className="input">
+                            <label htmlFor="imageUrl">ImageUrl</label>
+                            <input type='text' id='imageUrl' placeholder="Type imageUrl" defaultValue={recipe.imageUrl} onChange={e => this.handleChange(e, 'imageUrl')} />
+                        </div>
+                        <div className="recipe-description" >
+                            <textarea rows="4" cols="45" type="text" name="description" id="description"
+                                placeholder="Description" defaultValue={recipe.description} onChange={e => this.handleChange(e, 'description')}></textarea>
+                        </div>
+                        <div className="recipe-category">
+                            <label htmlFor="Category">Category:</label>
+                            <span>
+                                <select name="category" type="text" onChange={e => this.handleChange(e, 'category')}>
+                                    <option defaultValue="" >{recipe.category}</option>
+                                    <option value="Soups">Soups</option>
+                                    <option value="Salads">Salads</option>
+                                    <option value="Main-dishes">Main dishes</option>
+                                    <option value="Desserts">Desserts</option>
+                                    <option value="Bread">Bread</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div className="flex-buttons">
+                            <SubmitButton title="Edit" />
+                            <Link to={`/recipe-details/${recipe._id}/edit`} className="btn btn--submit">back</Link>
+                        </div>
+                    </form>
+                </section>
+            )
+        }
+
     }
 }
 
