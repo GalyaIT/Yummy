@@ -31,10 +31,8 @@ const Cooks = () => {
     } else {
         return (
             <div className="cooks">
-                <div className="cooks-wrapper">
-                    {cooks.length === 0 ?
-                        <span className="ccok-wrapper__message"> No users to display...</span> :
-                        currentItems.map(x =>
+                <div className="cooks-wrapper">                
+                      { currentItems.map(x =>
                             <Cook key={x._id}
                                 id={x._id}
                                 username={x.username}

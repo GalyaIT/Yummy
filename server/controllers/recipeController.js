@@ -3,7 +3,7 @@ const Recipe = require('../models/Recipe');
 const User = require('../models/User');
 const Comment = require('../models/Comment')
 const { isAuth } = require('../middlewares/auth');
-const { populate } = require('../models/Recipe');
+
 
 
 

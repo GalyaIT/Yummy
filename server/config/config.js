@@ -1,10 +1,11 @@
+const dotenv =require('dotenv')
+dotenv.config();
 const config = {
-    PORT:4000, 
-    // DB_URI:'mongodb://localhost/Yummy',
-    DB_URI:'mongodb+srv://galina:SAn7b6t68b4JGdRa@freecluster.gdzjo.mongodb.net/YummyDB?retryWrites=true&w=majority',
-    SALT_ROUNDS:10,
-    SECRET:'supersecret',
-    COOKIE_NAME:'USER_SESSION',
+    PORT:process.env.PORT || 4000,     
+    DB_URI:process.env.DB_URI,
+    SALT_ROUNDS:process.env.SALT_ROUNDS,
+    SECRET:process.env.SECRET,
+    COOKIE_NAME:process.env.COOKIE_NAME,
 }
 module.exports = config;
 

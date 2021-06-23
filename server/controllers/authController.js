@@ -76,11 +76,11 @@ router.get('/verify', (req, res, next) => {
 
 
 
-router.post('/logout', (req, res, next)=>{
-    const token = req.cookies[config.COOKIE_NAME]; //CHECK
-    console.log(token);
-    res.clearCookie(config.COOKIE_NAME).send('Logout successfully!');
-})
+// router.post('/logout', (req, res, next)=>{
+//     const token = req.cookies[config.COOKIE_NAME]; //CHECK
+//     console.log(token);
+//     res.clearCookie(config.COOKIE_NAME).send('Logout successfully!');
+// })
 
 router.get('/', (req, res, next) => {
     User.find()
