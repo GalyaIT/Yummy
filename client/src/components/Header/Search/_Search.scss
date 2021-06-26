@@ -3,14 +3,26 @@
 
 .search-box {
     display: flex;
-    margin-top:20px;
+    margin-top: 20px;
     background-color: #fff6bb;
-    align-items: center;   
-    @include desktop { 
-        margin-top: 0;    
+    align-items: center;
+    @include desktop {
+        margin-top: 0;
         justify-content: end;
         border-radius: 40px;
-        background-color: #fff6bb;      
+        background-color: #fff6bb;
+        width: 90%;
+    }
+
+    &__search-category {
+        background-color: map-get($colors, primary);
+        border: none;
+        outline: none;
+        text-align-last: right;
+        // padding-right: 2px;
+        color: map-get($colors, secondary);
+        // color: #9e9e9e;
+     
     }
 
     &__search-image {
@@ -23,26 +35,44 @@
             height: 20px;
         }
         &:hover {
-            width: 22px;
-            height: 22px;
+            cursor: pointer;
         }
     }
     &__search-txt {
-        width: 280px;
+        width: 200px;
         padding: 0 5px;
-        border: 1px solid rgb(117, 147, 2);
+        border: 1px solid map-get($colors, secondary );;
         border-radius: 50px;
         align-self: center;
         margin-right: 5px;
-        padding-left: 20px;
-        background-color: #fcfcd6;
-        color: rgb(117, 147, 2);     
-        outline: none;        
-        font-size: 15px;
-        line-height: 30px       
+        padding-left: 20px;      
+        color: map-get($colors, bordeaux );
+        outline: none;
+        font-size: 12px;
+        line-height: 30px;
+        // background-color: map-get($colors, yellow-50 );
+        // background: linear-gradient(90deg, rgba(245,246,68,1) 0%, rgba(202,212,36,1) 36%, rgba(158,235,62,0.6867121848739496) 75%);
+        // background: linear-gradient(90deg, rgba(248,249,122,1) 0%, rgba(225,232,112,0.9976365546218487) 36%, rgba(180,242,103,0.6867121848739496) 75%);
+        background: linear-gradient(90deg, rgba(248,249,122,1) 0%, rgba(221,237,87,0.9976365546218487) 36%, rgba(180,242,103,0.6867121848739496) 75%);
+        @include desktop {
+            width: 260px;
+            font-size: 15px;
+        }
     }
     &__search-button {
         display: flex;
         flex-direction: column;
+        cursor: pointer;
     }
+    option{
+        font-size: 12px;
+        @include desktop {            
+            font-size: 15px;
+        }
+    }
+    option:first-of-type {
+        display: none;
+      
+      }
 }
+

@@ -16,6 +16,7 @@ import CreatePage from '../Recipes/CreateRecipe/CreateRecipe'
 import DetailsPage from '../Recipes/RecipeDetails/RecipeDetails'
 import EditPage from '../Recipes/EditRecipe/EditRecipe'
 import DeletePage from '../Recipes/DeleteRecipe/DeleteRecipe'
+import SearchPage from '../Header/Search/SearchPage'
 
 const Routing = () => {
     const context = useContext(UserContext)
@@ -26,6 +27,7 @@ const Routing = () => {
        
  <Switch> 
           <Route path="/" exact component={MainContainerPage}/>
+          <Route path="/search" render={(props) => <SearchPage {...props}/>}/> 
           <Route path="/recipes" component={RecipesPage} exact />            
           <Route path="/recipes/:category" component={RecipesPage} />   
           <Route path="/create-recipe" component={CreatePage}/> 

@@ -5,7 +5,18 @@ const Comment = require('../models/Comment')
 const { isAuth } = require('../middlewares/auth');
 
 
-
+router.get('/search', (req, res, next) => {
+    const {search}=req.query;
+    console.log(search);
+    const title = new RegExp(search, 'i')
+    Recipe.find({title : title})
+    .populate("creator", "username")
+        .then(recipes => {
+            res.json(recipes);
+            console.log(recipes);
+        })
+        .catch(next);
+});
 
 router.get('/',  (req, res, next) => {
     const category = req.query.category ? req.query.category : ' ';

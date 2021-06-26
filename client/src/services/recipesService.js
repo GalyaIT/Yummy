@@ -11,6 +11,14 @@ export const getAll = (category = '') => {
         .catch(error => console.log(error));
 };
 
+export const getRecipesBySearch = (search) => {
+    let recipeUrl = url + `/search?search=${search}`;
+    console.log(recipeUrl);
+    return fetch(recipeUrl)
+        .then(res => res.json())
+        .catch(error => console.log(error));
+};
+
 export const create = (title, imageUrl, description, category, user) => {
     let recipe = {
         title,
@@ -106,11 +114,6 @@ export const createComment = (content, recipeId, userId) => {
     .then(res => res.json());
 }
 
-// export const getAllComments = (recipeId) => {
-   
-//     return fetch(`${url}/${recipeId}/comments`)
-//         .then(res => res.json())
-//         .catch(error => console.log(error));
-// };
+
 
 
