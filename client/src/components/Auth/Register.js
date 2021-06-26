@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import {Link} from 'react-router-dom'
 import * as authService from '../../services/authService'
 import UserContext from '../../Context'
 import SubmitButton from '../Button/Submit-button'
@@ -87,7 +88,7 @@ class Register extends Component {
                         onChange={e => this.handleChange(e, 'username')}
                         label="Username"
                         id="username"
-                        placeholder="type your username" />
+                        placeholder="Type your username" />
                     <Input
                         type="password"
                         value={password}
@@ -105,6 +106,10 @@ class Register extends Component {
 
                     <SubmitButton title="Register" />
                 </form>
+                <div className="info-message">
+                <p>You already have an account? Click here to<Link to="/login">Login</Link></p>
+                
+                </div>   
             </div>
         )
     }

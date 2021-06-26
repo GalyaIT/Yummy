@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import {Link} from 'react-router-dom'
 import './_Login.scss'
 import * as authService from '../../services/authService'
 import UserContext from '../../Context'
@@ -88,7 +89,7 @@ class Login extends Component {
                         onChange={e => this.handleChange(e, 'username')}
                         label="Username"
                         id="username"
-                        placeholder="type your username" />
+                        placeholder="Type your username" />
                     <Input
                         type="password"
                         value={password}
@@ -98,6 +99,9 @@ class Login extends Component {
                         placeholder="**********"  />
                       <SubmitButton title="Login" />
                 </form>
+                <div className="info-message">
+                <p>Don't have an account yet? Click here to<Link to="/register">Register</Link></p>                
+                </div>               
             </div>
         )
     }

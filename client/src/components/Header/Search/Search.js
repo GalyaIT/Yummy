@@ -7,7 +7,7 @@ import * as authService from '../../../services/authService'
 
 const Search = (props) => {
     const [search, setSearch] = useState('')   
-    const [placeholder, setPlaceholder] = useState('Select category to search...')
+    const [placeholder, setPlaceholder] = useState('Select category to search ...')
     const [searchCategory, setSearchCategory] = useState('')
     const history = useHistory();
 
@@ -17,12 +17,12 @@ const Search = (props) => {
         setSearchCategory(e.target.value)
         if (e.target.value === 'Recipes') {
             console.log(e.target.value);
-            setPlaceholder('Search recipes by title')
+            setPlaceholder('Search recipes by title ...')
         } else
             if (e.target.value === 'Users') {
-                setPlaceholder('Search users by username')
+                setPlaceholder('Search users ...')
             } else {
-                setPlaceholder('Select category to search...')
+                setPlaceholder('Select category to search ...')
             }
     }
 
