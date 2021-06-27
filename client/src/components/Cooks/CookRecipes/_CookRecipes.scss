@@ -1,11 +1,22 @@
-.personal-recipes-section{
-    display:flex;
-flex-direction: column;
+@import "../../../styles/settings/settings-colors";
+@import "../../../styles//settings/settings-shadows";
 
-    &__heading{
+.personal-recipes-section {
+    display: flex;
+    flex-direction: column;
+    background-color: map-get($colors, primary);
+    &__heading {
         text-align: center;
-        h1{
-            font-size: 20px;
+        h1 {
+            font-size: 20px;          
+            width: 80%;
+            margin: 0 auto;
+            box-shadow: $secondary-shadow;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            padding: 5px 20px;     
+            
         }
     }
 }
